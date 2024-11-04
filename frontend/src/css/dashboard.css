@@ -1,0 +1,81 @@
+/* Sidebar logo styling */
+.sidebar-logo {
+    max-width: 180px; /* Increase width to make the logo larger */
+    margin-bottom: 20px; /* Space below the logo */
+}
+
+/* Dashboard CSS */
+.dashboard-container {
+    display: flex; /* Flex layout for sidebar + content */
+    height: 100vh; /* Full viewport height */
+    background-color: #f0f4f8; /* Light background color */
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 240px; /* Width of the sidebar */
+    background-color: #091057; /* Sidebar background color */
+    color: white; /* Text color */
+    padding: 20px; /* Padding inside the sidebar */
+    position: fixed; /* Fix sidebar on the left */
+    left: 0; /* Align sidebar to the left */
+    top: 0;
+    bottom: 0;
+    height: 100%; /* Full height */
+    box-sizing: border-box; /* Include padding in width */
+    display: flex; /* Enable flexbox for layout */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: space-between; /* Distribute space between items */
+}
+
+.sidebar h2 {
+    margin: 0 0 20px; /* Spacing below the title */
+}
+
+/* Sidebar navigation list */
+.sidebar ul {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Remove padding */
+}
+
+.sidebar li {
+    margin: 20px 0; /* Spacing between items */
+}
+
+.sidebar a {
+    color: white; /* Link color */
+    text-decoration: none; /* Remove underline */
+    display: flex; /* Use flexbox to align items */
+    align-items: center; /* Center items vertically */
+    padding-left: 10px; /* Add left padding to move items right */
+}
+
+.sidebar a:hover {
+    color: #dcdcdc; /* Optional: light gray on hover */
+}
+
+/* Icon spacing */
+.sidebar a i {
+    margin-right: 10px; /* Space between icon and text */
+}
+
+/* Main dashboard content */
+.dashboard-content {
+    margin-left: 270px; /* Space for the sidebar */
+    padding: 20px; /* Padding around content */
+    font-size: 1.2rem;
+}
+
+/* Need Help Section */
+.need-help {
+    margin-top: auto; /* Push this section to the bottom of the sidebar */
+    display: flex; /* Use flexbox to align items */
+    align-items: center; /* Center items vertically */
+    color: white; /* Text color */
+    padding: 20px; /* Padding around the text */
+}
+
+.need-help i {
+    margin-right: 10px; /* Space between icon and text */
+    font-size: 20px; /* Size of the icon */
+}
