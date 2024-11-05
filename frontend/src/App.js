@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './core/navbar'; // Import Navbar
 import Dashboard from './core/components';
 import DashboardScreen from './core/dashboard';
 import IssueTicket from './core/issue_ticket';
@@ -12,11 +13,9 @@ import Settings from './core/settings';
 function App() {
   return (
     <Router>
+      <Navbar /> {/* Navbar at the top */}
       <Routes>
-        {/* Dashboard layout with sidebar */}
         <Route path="/" element={<Dashboard />}>
-          {/* Redirect root to /dashboard */}
-          <Route index element={<Navigate to="dashboard" replace />} />
           <Route path="dashboard" element={<DashboardScreen />} />
           <Route path="issue-ticket" element={<IssueTicket />} />
           <Route path="manage-trips" element={<ManageTrips />} />

@@ -1,0 +1,53 @@
+/* Navbar card container */
+.navbar-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Card shadow */
+  border-radius: 10px; /* Rounded corners */
+  margin: 15px;
+  width: 78%;
+  margin-left: 18%;
+  margin-right: 10%;
+}
+
+/* Search container styling */
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  max-width: 500px; /* Adjust width as needed */
+}
+
+.search-input {
+  width: 100%;
+  padding: 8px 30px 8px 10px; /* Adjust padding to make room for the icon */
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  outline: none;
+}
+
+/* Search icon styling */
+.search-icon {
+  position: absolute;
+  right: 10px;
+  color: #666;
+  font-size: 16px;
+  pointer-events: none;
+}
+
+/* Profile avatar styling */
+.profile-avatar {
+  margin-left: 15px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ddd; /* Optional border around the avatar */
+}
