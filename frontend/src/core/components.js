@@ -1,8 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Import Link for routing
+import { Link, Outlet } from 'react-router-dom'; // Import Outlet for nested routing
 import '../css/dashboard.css'; // Ensure this path points to your CSS file
 import logo from '../assets/logo.png'; // Adjust the path to your logo
-import DashboardScreen from './dashboard'; // Import your DashboardScreen component
 
 function Dashboard() {
   return (
@@ -18,14 +17,15 @@ function Dashboard() {
           <li><Link to="/reports"><i className="fas fa-chart-line"></i> Reports</Link></li>
           <li><Link to="/settings"><i className="fas fa-cog"></i> Settings</Link></li>
         </ul>
-        {/* Need Help Section */}
         <div className="need-help">
           <i className="fas fa-comments"></i>
           <span>Need Help?</span>
         </div>
       </nav>
+
+      {/* This will render the component based on the selected route */}
       <div className="dashboard-content">
-        <DashboardScreen /> {/* Render the DashboardScreen component here */}
+        <Outlet /> {/* Outlet renders the matched child route component */}
       </div>
     </div>
   );
