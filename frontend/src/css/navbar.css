@@ -22,26 +22,37 @@
   max-width: 500px; /* Adjust width as needed */
 }
 
+/* Search icon styling */
+.search-icon {
+  color: black;
+  font-size: 16px;
+  margin-right: 8px; /* Space between icon and input */
+}
+
+/* Search input styling */
 .search-input {
   width: 100%;
-  padding: 8px 30px 8px 10px; /* Adjust padding to make room for the icon */
+  padding: 8px 10px; /* Adjust padding to prevent collision */
   border: 1px solid #ddd;
   border-radius: 20px;
   outline: none;
 }
 
-/* Search icon styling */
-.search-icon {
-  position: absolute;
-  right: 10px;
-  color: #666;
-  font-size: 16px;
-  pointer-events: none;
+/* Notification and profile container */
+.notification-profile {
+  display: flex;
+  align-items: center; /* Align items vertically */
+}
+
+/* Notification icon styling */
+.notification-icon {
+  margin-right: 15px; /* Space between notification icon and profile avatar */
+  font-size: 23px; /* Adjust size if necessary */
 }
 
 /* Profile avatar styling */
 .profile-avatar {
-  margin-left: 15px;
+  margin-left: 5px; /* Space between avatar and notification icon */
 }
 
 .avatar {
