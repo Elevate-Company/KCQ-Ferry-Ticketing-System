@@ -8,6 +8,8 @@
     top: 0;
     z-index: 10;
     transition: width 0.3s;
+    display: flex;
+    flex-direction: column; /* Add flex to make the sidebar content align vertically */
 }
 
 .sidebar.expanded {
@@ -23,6 +25,8 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 10px;
+    margin-top: 10px; /* Reduced distance from the top for logo */
+    margin-bottom: 30px; /* Space below the logo */
 }
 
 .btn-toggle-sidebar {
@@ -38,6 +42,7 @@
     width: 50px;
     height: auto;
     transition: width 0.3s;
+    margin-top: 0; /* Reduced distance from the top */
 }
 
 /* Sidebar links styling */
@@ -51,6 +56,7 @@
     white-space: nowrap;
     overflow: hidden;
     transition: all 0.3s;
+    margin-bottom: 15px; /* Increased space between the links */
 }
 
 .sidebar.collapsed .nav-link {
@@ -85,7 +91,7 @@
     font-size: 14px;
     color: #ffffff;
     cursor: pointer;
-    margin-top: auto;
+    margin-top: auto; /* Pushes the "Need Help" section to the bottom */
     padding: 10px 15px;
     display: flex;
     align-items: center;

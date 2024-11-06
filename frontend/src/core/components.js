@@ -26,12 +26,22 @@ function Components() {
         <div className={`sidebar ${isSidebarExpanded ? 'expanded' : 'collapsed'}`}>
           <div className="sidebar-header">
             <div className="d-flex align-items-center">
-              <img src={logo} alt="KCQ Logo" className="sidebar-logo" />
+              {/* Display logo only when sidebar is expanded */}
+              {isSidebarExpanded && <img src={logo} alt="KCQ Logo" className="sidebar-logo" />}
+              {/* Display the triple right arrow icon only when sidebar is collapsed */}
+              {!isSidebarExpanded && (
+                <button onClick={toggleSidebar} className="btn-toggle-sidebar">
+                  <span className="arrow-icon">→</span>    
+                </button>
+              )}
               {isSidebarExpanded && <span className="h5 text-white ms-2">Express</span>}
             </div>
-            <button onClick={toggleSidebar} className="btn-toggle-sidebar">
-              {isSidebarExpanded ? '×' : '☰'}
-            </button>
+            {/* The button now only toggles */}
+            {isSidebarExpanded && (
+              <button onClick={toggleSidebar} className="btn-toggle-sidebar">
+                ×
+              </button>
+            )}
           </div>
           <ul className="nav flex-column">
             <li className="nav-item">
