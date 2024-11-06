@@ -1,104 +1,15 @@
-/* Sidebar logo and title container */
-.sidebar-logo-container {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    gap: 5px; /* Space between KCQ logo and Express text */
-}
+/* Global styles for the dashboard layout */
 
-/* Sidebar logo styling */
-.sidebar-logo {
-    max-width: 40%;
-    max-height: 60%;
-    margin-top: 5%;
-}
-
-/* Sidebar title (Express) styling */
-.sidebar-title {
-    font-size: 30px;
-    font-weight: bold;
-    color: white;
-    margin-top: 5%;
-}
-
-/* Dashboard container */
-.dashboard-container {
-    display: flex;
-    height: 100vh;
-    background-color: #f0f4f8;
-}
-
-/* Sidebar styling */
-.sidebar {
-    width: 200px;
-    background-color: #091057;
-    color: white;
+/* Main content styling */
+.main-content {
     padding: 20px;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    height: 100vh;
-    overflow-y: auto;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-}
-
-.sidebar ul {
-    list-style-type: none;
+  }
+  
+  /* Container for consistent grid structure */
+  .container-fluid {
+    margin: 0;
     padding: 0;
-    flex-grow: 1;
-}
-
-.sidebar li {
-    margin: 30px 0;
-}
-
-.sidebar a {
-    color: white;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    padding-left: 10px;
-    padding: 8px; /* Add some padding around the link */
-    border-radius: 5px; /* Ensure rounded corners for the active link */
-}
-
-/* Active link styling */
-.sidebar .active-link {
-    background-color: white; /* White background when active */
-    color: #091057; /* Change text color to dark blue */
-    border: 2px solid white; /* Add a white border around the active link */
-    padding: 8px 15px; /* Adjust padding to fit the content */
-}
-
-/* Styling for sidebar icon images */
-.sidebar-icon {
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
-}
-
-.need-help {
-    display: flex;
-    align-items: center;
-    color: white;
-    padding: 20px;
-    margin-top: auto;
-    margin-bottom: 10%;
-}
-
-/* Main dashboard content */
-.dashboard-content {
-    margin-left: 240px;
-    padding: 20px;
-    width: calc(100% - 240px);
-    overflow-y: auto;
-    background-color: #ffffff;
-    padding-top: 20px;
-    border-radius: 8px;
-    height: calc(100vh - 40px);
-    box-sizing: border-box;
-}
+  }
+  
+  /* Add any additional global styles here */
+  

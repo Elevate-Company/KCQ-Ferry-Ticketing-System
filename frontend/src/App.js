@@ -8,6 +8,8 @@ import ManageTickets from './core/manage_tickets';
 import Profile from './core/profile';
 import Reports from './core/reports';
 import Settings from './core/settings';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
   return (

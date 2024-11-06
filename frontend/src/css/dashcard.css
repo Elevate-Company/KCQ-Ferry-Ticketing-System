@@ -1,0 +1,11 @@
+/* src/css/dashcard.css */
+
+/* Custom styling for the card content */
+.card-content {
+    font-size: 18px;
+    color: #555;
+}
+
+.card-content p {
+    margin: 10px 0;
+}
