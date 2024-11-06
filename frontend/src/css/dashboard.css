@@ -1,7 +1,24 @@
+/* Sidebar logo and title container */
+.sidebar-logo-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 5px; /* Space between KCQ logo and Express text */
+}
+
 /* Sidebar logo styling */
 .sidebar-logo {
-    max-width: 180px;
-    margin-bottom: 20px;
+    max-width: 40%;
+    max-height: 60%;
+    margin-top: 5%;
+}
+
+/* Sidebar title (Express) styling */
+.sidebar-title {
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    margin-top: 5%;
 }
 
 /* Dashboard container */
@@ -25,15 +42,18 @@
     overflow-y: auto;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     z-index: 1000;
+    display: flex;
+    flex-direction: column;
 }
 
 .sidebar ul {
     list-style-type: none;
     padding: 0;
+    flex-grow: 1;
 }
 
 .sidebar li {
-    margin: 20px 0;
+    margin: 30px 0;
 }
 
 .sidebar a {
@@ -42,27 +62,32 @@
     display: flex;
     align-items: center;
     padding-left: 10px;
+    padding: 8px; /* Add some padding around the link */
+    border-radius: 5px; /* Ensure rounded corners for the active link */
 }
 
-.sidebar a:hover {
-    color: #dcdcdc;
+/* Active link styling */
+.sidebar .active-link {
+    background-color: white; /* White background when active */
+    color: #091057; /* Change text color to dark blue */
+    border: 2px solid white; /* Add a white border around the active link */
+    padding: 8px 15px; /* Adjust padding to fit the content */
 }
 
-.sidebar a i {
+/* Styling for sidebar icon images */
+.sidebar-icon {
+    width: 20px;
+    height: 20px;
     margin-right: 10px;
 }
 
 .need-help {
-    margin-top: auto;
     display: flex;
     align-items: center;
     color: white;
     padding: 20px;
-}
-
-.need-help i {
-    margin-right: 10px;
-    font-size: 20px;
+    margin-top: auto;
+    margin-bottom: 10%;
 }
 
 /* Main dashboard content */

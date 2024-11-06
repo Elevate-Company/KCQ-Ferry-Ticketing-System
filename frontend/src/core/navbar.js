@@ -2,7 +2,7 @@
 
 import React from 'react';
 import '../css/navbar.css'; // Ensure this path points to your CSS file
-import profileImage from '../assets/profile.png'; // Replace with the actual path to your profile image
+import profileImage from '../assets/avatar.png'; // Replace with the actual path to your profile image
 
 function Navbar() {
   return (
