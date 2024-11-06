@@ -1,62 +1,31 @@
 /* Sidebar styling */
 .sidebar {
-    background-color: #091057; /* Sidebar background color */
-    color: white;  /* Set the text color to white */
-    height: 100vh;  /* Full height for the sidebar */
+    background-color: #091057;
+    color: white;
+    height: 100vh;
     padding-top: 20px;
-    position: sticky;  /* Make the sidebar sticky */
+    position: sticky;
     top: 0;
-    z-index: 10; /* Ensure the sidebar is above other content */
+    z-index: 10;
+    transition: width 0.3s;
 }
 
-/* Custom styles for sidebar logo */
-.sidebar-logo {
+.sidebar.expanded {
+    width: 250px;
+}
+
+.sidebar.collapsed {
     width: 80px;
-    height: auto;
 }
 
-/* Sidebar links styling */
-.nav-link {
-    color: white !important;  /* Ensure the links are white */
-    padding: 10px 15px;
+.sidebar-header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    font-size: 20px;  /* Adjust font size */
-    text-decoration: none;  /* Remove underline */
+    padding: 0 10px;
 }
 
-/* Active link styling */
-.nav-link.active {
-    background-color:  white;  /* Light background for active link */
-    color: black !important;  /* Set text color to black when active */
-    border-radius: 15px;
-}
-
-/* Active icon styling */
-.nav-link.active .sidebar-icon {
-    filter: brightness(10) invert(10);  /* Change the icon to black when active */
-}
-
-/* Sidebar icons */
-.sidebar-icon {
-    width: 25px;
-    height: auto;
-    margin-right: 10px;
-}
-
-/* "Need Help" section */
-.need-help {
-    font-size: 14px;
-    color: #ffffff;  /* White color for text */
-    cursor: pointer;
-    margin-top: auto;
-    padding: 10px 15px;
-    display: flex;
-    align-items: center;
-}
-
-/* Sidebar close button styling */
-.btn-close-sidebar {
+.btn-toggle-sidebar {
     background: none;
     border: none;
     color: white;
@@ -64,17 +33,64 @@
     cursor: pointer;
 }
 
-/* Sidebar open button styling */
-.btn-open-sidebar {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    background: #091057;
-    color: white;
-    border: none;
-    font-size: 24px;
+/* Sidebar logo */
+.sidebar-logo {
+    width: 50px;
+    height: auto;
+    transition: width 0.3s;
+}
+
+/* Sidebar links styling */
+.nav-link {
+    color: white !important;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.sidebar.collapsed .nav-link {
+    justify-content: center;
+}
+
+.nav-link.active {
+    background-color: white;
+    color: black !important;
+    border-radius: 10px;
+}
+
+/* Sidebar icons */
+.sidebar-icon {
+    width: 25px;
+    height: auto;
+    margin-right: 10px;
+    transition: margin 0.3s;
+}
+
+.sidebar.collapsed .sidebar-icon {
+    margin-right: 0;
+}
+
+/* Change icon color when link is active */
+.nav-link.active .sidebar-icon {
+    filter: invert(100%) brightness(0) !important;
+}
+
+/* "Need Help" section */
+.need-help {
+    font-size: 14px;
+    color: #ffffff;
     cursor: pointer;
-    padding: 5px 10px;
-    border-radius: 5px;
-    z-index: 20;
+    margin-top: auto;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar.collapsed .need-help span {
+    display: none;
 }
