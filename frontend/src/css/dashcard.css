@@ -58,10 +58,38 @@
     margin: 10px; /* Add some space between cards */
 }
 
-/* Optional: Add more spacing for responsiveness */
+/* Additional styling for DashCard full-width expansion */
+.container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+/* Ensures full width for .light-shadow on larger screens */
+.card.light-shadow {
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Adjust child card alignment and spacing */
+.d-flex {
+    gap: 20px; /* Adds space between cards when displayed horizontally */
+}
+
+@media (min-width: 768px) {
+    .d-flex {
+        justify-content: space-evenly; /* Spreads cards evenly on medium+ screens */
+    }
+}
+
 @media (max-width: 767px) {
     .card-body > .d-flex > div {
         margin: 10px 0; /* Vertical margin on mobile */
     }
-}
 
+    /* Stack items vertically on small screens */
+    .d-flex {
+        flex-direction: column;
+    }
+}

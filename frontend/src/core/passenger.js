@@ -1,16 +1,21 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Ensure Bootstrap is imported
+import '../css/passenger.css'; // Import the custom CSS
+import personImage from '../assets/person.png'; // Import the image
 
 function Passenger() {
   return (
-    <div className="card shadow-sm border-0 mb-4 col-12 col-md-6 col-lg-4 position-relative">
+    <div className="card passenger-card border-0 mb-4 col-12 col-md-6 col-lg-4 position-relative">
+      {/* Image positioned in the top-left corner */}
+      <img 
+        src={personImage} 
+        alt="Person Icon" 
+        className="passenger-image" 
+      />
+      
       {/* Card body for passenger information */}
-      <div className="card-body">
-        <h2 className="text-center mb-4">Passenger Information</h2>
-        <h5 className="card-title">Number of Passengers</h5>
-        <p className="card-text" style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>
-          150 Passengers {/* Replace with dynamic value if necessary */}
-        </p>
+      <div className="card-body passenger-card-body">
+        <h4 className="passenger-title">Number of Passengers</h4>
       </div>
     </div>
   );

@@ -1,15 +1,23 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Ensure Bootstrap is imported
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../css/available_boat.css'; // Import custom CSS
+import boatImage from '../assets/boat.png';
 
 function AvailableBoat() {
   return (
-    <div className="card shadow-sm border-0 mb-4 col-12 col-md-6 col-lg-4 position-relative">
+    <div className="card available-boat-card shadow-sm border-0 mb-4 col-12 col-md-6 col-lg-4">
+      {/* Image positioned at the top-left corner */}
+      <img 
+        src={boatImage} 
+        alt="Boat" 
+        className="boat-image" 
+      />
+
       {/* Card body for available boat information */}
-      <div className="card-body">
-        <h2 className="text-center mb-4">Available Boats</h2>
-        <h5 className="card-title">Number of Available Boats</h5>
-        <p className="card-text" style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>
-          10 Boats Available {/* Replace with dynamic value if necessary */}
+      <div className="card-body card-body-content">
+        <h4 className="available-boat-title">Number of Available Boats</h4>
+        <p>Today</p>
+        <p className="card-text boat-count">
         </p>
       </div>
     </div>

@@ -32,21 +32,21 @@
 /* First wave layer (blue gradient for movement) */
 .wave {
     position: absolute;
-    width: 540px;
-    height: 700px;
+    width: 640px; /* Increased size for larger screens */
+    height: 800px; /* Adjusted height for better visibility */
     opacity: 0.6;
-    left: 0;
+    left: 50%; /* Center horizontally */
     top: 0;
-    margin-left: -50%;
-    margin-top: -70%;
+    margin-left: -320px; /* Adjusted to keep it centered */
+    margin-top: -200px; /* Adjusted to position wave properly */
     border-radius: 40%;
-    animation: wave-animation 15s infinite linear;
+    animation: wave-animation 10s infinite linear; /* Faster animation for smoother effect */
 }
 
 /* Second wave layer with a slight delay */
 .wave:nth-child(2) {
-    top: 210px;
-    animation-duration: 50s;
+    top: 200px; /* Slightly adjusted for better positioning */
+    animation-duration: 12s; /* Faster than previous duration */
     animation-delay: 1s;
     opacity: 0.5;
     background: linear-gradient(744deg, #60a5fa, #3b82f6 60%, #1e3a8a);
@@ -67,6 +67,20 @@
     /* On mobile, make card take full width */
     .ticket-card {
         width: 100% !important; /* Ensures full width on smaller screens */
+    }
+
+    /* Adjust wave layers for better fit on smaller screens */
+    .wave {
+        width: 500px; /* Smaller wave size for mobile */
+        height: 600px; /* Adjust height */
+        margin-left: -250px; /* Adjust positioning for mobile */
+        margin-top: -50%; /* Adjust to fit better on mobile */
+    }
+
+    .wave:nth-child(2) {
+        width: 500px; /* Smaller wave for mobile */
+        height: 600px; /* Adjust height */
+        margin-left: -250px;
     }
 }
 

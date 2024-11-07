@@ -1,17 +1,15 @@
 import React from 'react';
 import Navbar from './navbar'; // Import Navbar
 import DashCard from './dashcard'; // Import DashCard component
+import '../css/dashboard.css'; // Import custom CSS if needed
 
 function DashboardScreen() {
   return (
-    <div>
+    <>
       <Navbar /> {/* Navbar included here */}
-     
-      
-      {/* Add DashCard component here */}
-      <DashCard /> {/* This will render your DashCard component */}
-    </div>
+      <DashCard /> {/* This will render the DashCard component without additional wrappers */}
+    </>
   );
 }
-                              
+
 export default DashboardScreen;

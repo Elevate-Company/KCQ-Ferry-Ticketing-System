@@ -1,0 +1,33 @@
+/* src/css/passenger.css */
+
+/* Image positioned in the top-left corner */
+.passenger-image {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 50px; /* Adjust size as needed */
+    height: auto;
+    z-index: 1; /* Ensures the image is on top */
+}
+
+/* Card styling */
+.passenger-card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* Lighter shadow */
+}
+
+/* Spacing adjustment for card body */
+.passenger-card-body {
+    margin-top: 50px; /* Adjusted top margin for spacing */
+}
+
+/* Card title styling */
+.passenger-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Card text styling */
+.passenger-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
