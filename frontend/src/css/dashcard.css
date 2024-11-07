@@ -9,3 +9,59 @@
 .card-content p {
     margin: 10px 0;
 }
+
+/* Light shadow for the card */
+.light-shadow {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* Lighter shadow */
+}
+
+/* Ensures the card takes the full width of its container */
+.card {
+    width: 100%;  /* Make card take the full width */
+    max-width: 100%; /* Prevent card from exceeding container width */
+    margin: 0 auto; /* Centers the card horizontally */
+}
+
+/* Styling for card body to display content properly */
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Styling for card title */
+.card-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Flexbox adjustments for horizontal alignment on desktop */
+.d-flex {
+    display: flex;
+}
+
+/* Container for horizontal card layout on larger screens */
+.d-flex.flex-md-row {
+    flex-direction: row; /* Aligns horizontally */
+    justify-content: space-between; /* Space out items */
+}
+
+/* Vertical alignment for smaller screens */
+.d-flex.flex-column {
+    flex-direction: column; /* Aligns vertically */
+}
+
+/* Ensure each card (TicketSales, TicketSold, AvailableBoat) is properly spaced */
+.card-body > .d-flex > div {
+    flex: 1; /* Allow cards to take equal width */
+    margin: 10px; /* Add some space between cards */
+}
+
+/* Optional: Add more spacing for responsiveness */
+@media (max-width: 767px) {
+    .card-body > .d-flex > div {
+        margin: 10px 0; /* Vertical margin on mobile */
+    }
+}
+

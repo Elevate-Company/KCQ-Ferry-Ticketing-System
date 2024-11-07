@@ -1,18 +1,14 @@
-/* Styling for the ticket sales container */
-.ticket-sales-container {
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
+/* src/css/ticket_sales.css */
 
-/* Individual card styling */
+/* Styling for the card */
 .ticket-card {
     background-color: #ffffff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: left;
+    overflow: hidden;
+    position: relative;
 }
 
 /* Title and paragraph styling */
@@ -22,26 +18,65 @@
     margin: 10px 0;
 }
 
-/* Sales item styling */
-.sales-item {
-    margin-bottom: 15px;
+/* Wave animation container */
+.wave-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Adjust height for wave visibility */
+    overflow: hidden;
+    pointer-events: none; /* Ensure wave doesn't block interactions */
 }
 
-.sales-item p {
-    font-size: 14px;
-    color: #333;
+/* First wave layer (blue gradient for movement) */
+.wave {
+    position: absolute;
+    width: 540px;
+    height: 700px;
+    opacity: 0.6;
+    left: 0;
+    top: 0;
+    margin-left: -50%;
+    margin-top: -70%;
+    border-radius: 40%;
+    animation: wave-animation 15s infinite linear;
 }
 
-/* Divider between sales data */
-hr {
-    margin: 10px 0;
-    border: 0;
-    border-top: 1px solid #ddd;
+/* Second wave layer with a slight delay */
+.wave:nth-child(2) {
+    top: 210px;
+    animation-duration: 50s;
+    animation-delay: 1s;
+    opacity: 0.5;
+    background: linear-gradient(744deg, #60a5fa, #3b82f6 60%, #1e3a8a);
 }
 
-/* Main heading styling */
-.ticket-sales-container h2 {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 20px;
+/* Keyframes for wave movement */
+@keyframes wave-animation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    /* On mobile, make card take full width */
+    .ticket-card {
+        width: 100% !important; /* Ensures full width on smaller screens */
+    }
+}
+
+/* Optional: Customize for very small screens like phones in portrait mode */
+@media (max-width: 480px) {
+    .ticket-card {
+        padding: 15px; /* Reduce padding on smaller screens */
+    }
+
+    .ticket-card p {
+        font-size: 14px; /* Make font size smaller */
+    }
 }

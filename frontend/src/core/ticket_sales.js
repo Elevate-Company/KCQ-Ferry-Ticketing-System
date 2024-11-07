@@ -1,14 +1,21 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Ensure Bootstrap is imported
+import '../css/ticket_sales.css'; // Custom CSS file for wave animation
 
 function TicketSales() {
   const totalSales = 28000;  // Set total sales value to 28,000
 
   return (
-    <div className="card shadow-sm border-0 mb-4" style={{ width: '100%', maxWidth: '45%' }}>  {/* Removed solid border */}
-      <div className="card-body">
-        <h5 className="card-title">Total Sales This Month:</h5>
+    <div className="card shadow-sm ticket-card border-0 mb-4 col-12 col-md-6 col-lg-4">  {/* Bootstrap grid classes */}
+      <div className="card-body position-relative">
+        <h5 className="card-title">Recent Sales</h5>
+        <p>Total sales this month</p>
         <p className="card-text">${totalSales}</p>
+
+        {/* Wave container */}
+        <div className="wave-container">
+          <div className="wave wave1"></div>
+          <div className="wave wave2"></div>
+        </div>
       </div>
     </div>
   );
