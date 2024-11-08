@@ -1,18 +1,16 @@
-// src/core/navbar.js
-
 import React from 'react';
-import '../css/navbar.css'; // Ensure this path points to your CSS file
-import profileImage from '../assets/avatar.png'; // Replace with the actual path to your profile image
+import '../css/navbar.css';
+import profileImage from '../assets/avatar.png';
 
 function Navbar() {
   return (
     <div className="navbar-card">
       <div className="search-container">
-        <i className="fas fa-search search-icon"></i> {/* Font Awesome search icon */}
+        <i className="fas fa-search search-icon"></i> {}
         <input type="text" placeholder="Search..." className="search-input" />
       </div>
       <div className="notification-profile">
-        <i className="fas fa-bell notification-icon"></i> {/* Font Awesome bell icon */}
+        <i className="fas fa-bell notification-icon"></i> {}
         <div className="profile-avatar">
           <img src={profileImage} alt="Profile" className="avatar" />
         </div>

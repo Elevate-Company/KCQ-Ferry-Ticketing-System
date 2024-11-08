@@ -1,5 +1,3 @@
-// frontend/src/core/ManageTickets.js
-import React from 'react';
 
 function ManageTickets() {
   return (

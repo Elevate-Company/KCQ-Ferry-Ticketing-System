@@ -1,4 +1,4 @@
-// frontend/src/core/ManageTrips.js
+
 import React from 'react';
 
 function ManageTrips() {

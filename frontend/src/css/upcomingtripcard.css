@@ -1,0 +1,12 @@
+/* Increased width for the card in UpcomingTripCard */
+.card {
+    width: 100%; /* Ensure the card takes full width of the column */
+  }
+  
+  /* Optional custom styles for the header */
+  .card-body h5 {
+    font-size: 1.5rem;  /* Larger font size for the header */
+    font-weight: 600;    /* Bold font */
+    color: #091057;      /* Dark color for the text */
+  }
+  

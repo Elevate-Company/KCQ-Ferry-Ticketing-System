@@ -4,7 +4,7 @@ function IssueTicket() {
   return (
     <div>
       <h1>Issue Ticket Page</h1>
-      {/* Your content here */}
+      {}
     </div>
   );
 }

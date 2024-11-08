@@ -22,10 +22,10 @@ function Components() {
   return (
     <div className="container-fluid">
       <div className="row">
-        {/* Sidebar */}
+        {}
         <div className={`sidebar ${isSidebarExpanded ? 'expanded' : 'collapsed'}`}>
           <div className="sidebar-header">
-            {/* Display logo in expanded mode, and arrow icon in collapsed mode */}
+            {}
             {isSidebarExpanded ? (
               <img src={logo} alt="KCQ Logo" className="sidebar-logo" />
             ) : (
@@ -34,7 +34,7 @@ function Components() {
               </button>
             )}
 
-            {/* Toggle Button (X icon in expanded mode) */}
+            {}
             {isSidebarExpanded && (
               <button onClick={toggleSidebar} className="btn-toggle-sidebar">
                 ×
@@ -42,7 +42,7 @@ function Components() {
             )}
           </div>
 
-          {/* Sidebar menu items */}
+          {}
           <ul className="nav flex-column">
             <li className="nav-item">
               <NavLink to="/dashboard" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>

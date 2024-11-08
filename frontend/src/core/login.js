@@ -1,29 +1,27 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
-import '../css/login.css'; // Ensure your CSS file is imported
-import logo from '../assets/logo.png'; // Updated path
+import { useNavigate } from 'react-router-dom';
+import '../css/login.css';
+import logo from '../assets/logo.png';
 
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate(); // Initialize the navigate function
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Handle login logic here
+  
     console.log('Username:', username);
     console.log('Password:', password);
     
-    // Simulate successful login and route to dashboard
-    // You can replace this with actual authentication logic
     if (username && password) {
-      navigate('/dashboard'); // Redirect to Dashboard
+      navigate('/dashboard');
     }
   };
 
   return (
     <div className="login-container">
-      <img src={logo} alt="Logo" className="logo" /> {/* Display logo above the form */}
+      <img src={logo} alt="Logo" className="logo" /> {}
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <input
@@ -43,7 +41,7 @@ function Login() {
         <button type="submit">Login</button>
       </form>
       <p>
-        <a href="/forgot-password">Forgot Password?</a> {/* Link to the forgot password page */}
+        <a href="/forgot-password">Forgot Password?</a> {}
       </p>
     </div>
   );
