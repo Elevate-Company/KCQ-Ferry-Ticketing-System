@@ -1,12 +1,50 @@
-/* tripcard.css */
-.trip-card {
+/* Styling for the tripcard container */
+.navbar-card {
+    display: flex; /* Aligns children elements in a row */
+    align-items: center; /* Vertically centers the items */
+    padding: 10px;
     background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Card shadow */
+    border-radius: 10px; /* Rounded corners */
+    margin: 10px;
 }
 
-.trip-card img {
-    max-width: 100%;
-    border-radius: 8px;
+/* Styling for the image container */
+.profile-avatar {
+    margin-right: 15px; /* Space between the image and text */
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Circular avatar */
+    object-fit: cover;
+}
+
+/* Styling for the text beside the image */
+.text-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.text-content p {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+}
+
+/* Container for the destination text */
+.h6-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Aligns the text and the image */
+}
+
+.text-content h6 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
 }
