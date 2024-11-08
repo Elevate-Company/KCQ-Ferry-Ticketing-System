@@ -1,12 +1,37 @@
-/* Increased width for the card in UpcomingTripCard */
-.card {
-    width: 100%; /* Ensure the card takes full width of the column */
+/* Responsive card styling */
+.responsive-card {
+  width: 100%; /* Ensures the card takes full width of the column */
+  height: auto; /* Adjust height automatically */
+  max-width: 100%; /* Keeps within container bounds */
+  transition: all 0.3s ease; /* Smooth resizing transition */
+}
+
+/* Card header styling */
+.card-body h5 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #091057;
+  text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .responsive-card {
+      padding: 1rem; /* Reduced padding on smaller screens */
   }
-  
-  /* Optional custom styles for the header */
   .card-body h5 {
-    font-size: 1.5rem;  /* Larger font size for the header */
-    font-weight: 600;    /* Bold font */
-    color: #091057;      /* Dark color for the text */
+      font-size: 1.25rem; /* Adjust font size for smaller screens */
   }
-  
+}
+
+@media (min-width: 768px) {
+  .responsive-card {
+      padding: 1.5rem; /* Increase padding for medium screens */
+  }
+}
+
+@media (min-width: 992px) {
+  .responsive-card {
+      padding: 2rem; /* Increase padding on larger screens */
+  }
+}
