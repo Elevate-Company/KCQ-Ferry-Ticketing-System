@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
-import '../css/dashboard.css';  // Global styles
-import '../css/components.css';  // Sidebar-specific styles
+import '../css/dashboard.css';
+import '../css/components.css';
 import logo from '../assets/kcq.png';
 import dashboardIcon from '../assets/dashboard.png';
 import issueTicketIcon from '../assets/issueticket.png';
@@ -25,24 +25,24 @@ function Components() {
         {/* Sidebar */}
         <div className={`sidebar ${isSidebarExpanded ? 'expanded' : 'collapsed'}`}>
           <div className="sidebar-header">
-            <div className="d-flex align-items-center">
-              {/* Display logo only when sidebar is expanded */}
-              {isSidebarExpanded && <img src={logo} alt="KCQ Logo" className="sidebar-logo" />}
-              {/* Display the triple right arrow icon only when sidebar is collapsed */}
-              {!isSidebarExpanded && (
-                <button onClick={toggleSidebar} className="btn-toggle-sidebar">
-                  <span className="arrow-icon">→</span>    
-                </button>
-              )}
-              {isSidebarExpanded && <span className="h5 text-white ms-2">Express</span>}
-            </div>
-            {/* The button now only toggles */}
+            {/* Display logo in expanded mode, and arrow icon in collapsed mode */}
+            {isSidebarExpanded ? (
+              <img src={logo} alt="KCQ Logo" className="sidebar-logo" />
+            ) : (
+              <button onClick={toggleSidebar} className="btn-toggle-sidebar arrow-right">
+                →
+              </button>
+            )}
+
+            {/* Toggle Button (X icon in expanded mode) */}
             {isSidebarExpanded && (
               <button onClick={toggleSidebar} className="btn-toggle-sidebar">
                 ×
               </button>
             )}
           </div>
+
+          {/* Sidebar menu items */}
           <ul className="nav flex-column">
             <li className="nav-item">
               <NavLink to="/dashboard" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
@@ -87,6 +87,8 @@ function Components() {
               </NavLink>
             </li>
           </ul>
+
+          {/* "Need Help" section */}
           <div className="d-flex align-items-center need-help">
             <img src={needHelpIcon} alt="Need Help" className="sidebar-icon" />
             {isSidebarExpanded && <span className="ms-2">Need Help?</span>}

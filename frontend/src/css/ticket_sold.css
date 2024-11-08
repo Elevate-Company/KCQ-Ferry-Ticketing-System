@@ -4,27 +4,39 @@
 .ticket-card .card-body {
     padding-top: 60px;  /* Adjust padding for top content */
     padding-left: 20px;
-  }
-  
-  /* Responsive adjustments for mobile */
-  @media (max-width: 768px) {
+    animation: fadeInUp 1s ease-out; /* Apply fade-in-up animation */
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
     .ticket-card .card-body {
-      padding-top: 55px;  /* Decrease padding on smaller screens */
+        padding-top: 55px;  /* Decrease padding on smaller screens */
     }
-  
+
     .ticket-card img {
-      width: 35px;  /* Adjust image size for smaller screens */
+        width: 35px;  /* Adjust image size for smaller screens */
     }
-  }
-  
-  /* Further adjustment for very small screens (e.g., phones) */
-  @media (max-width: 480px) {
+}
+
+/* Further adjustment for very small screens (e.g., phones) */
+@media (max-width: 480px) {
     .ticket-card .card-body {
-      padding-top: 45px;  /* Further reduce padding for mobile */
+        padding-top: 45px;  /* Further reduce padding for mobile */
     }
-  
+
     .ticket-card img {
-      width: 35px;  /* Further adjust image size */
+        width: 35px;  /* Further adjust image size */
     }
-  }
-  
+}
+
+/* Keyframes for fade-in-up animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Start 20px below */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* End in the original position */
+    }
+}

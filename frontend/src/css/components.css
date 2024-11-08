@@ -9,7 +9,7 @@
     z-index: 10;
     transition: width 0.3s;
     display: flex;
-    flex-direction: column; /* Add flex to make the sidebar content align vertically */
+    flex-direction: column;
 }
 
 .sidebar.expanded {
@@ -25,8 +25,8 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 10px;
-    margin-top: 10px; /* Reduced distance from the top for logo */
-    margin-bottom: 30px; /* Space below the logo */
+    margin-top: 10px;
+    margin-bottom: 30px;
 }
 
 .btn-toggle-sidebar {
@@ -35,6 +35,17 @@
     color: white;
     font-size: 24px;
     cursor: pointer;
+    transition: transform 0.3s;
+}
+
+/* Rotate arrow to the right in collapsed mode */
+.sidebar.collapsed .btn-toggle-sidebar.arrow-right {
+    transform: rotate(0deg);
+}
+
+/* Rotate arrow to the left in expanded mode */
+.sidebar.expanded .btn-toggle-sidebar.arrow-right {
+    transform: rotate(180deg);
 }
 
 /* Sidebar logo */
@@ -42,7 +53,6 @@
     width: 50px;
     height: auto;
     transition: width 0.3s;
-    margin-top: 0; /* Reduced distance from the top */
 }
 
 /* Sidebar links styling */
@@ -56,7 +66,7 @@
     white-space: nowrap;
     overflow: hidden;
     transition: all 0.3s;
-    margin-bottom: 15px; /* Increased space between the links */
+    margin-bottom: 15px;
 }
 
 .sidebar.collapsed .nav-link {
@@ -91,7 +101,7 @@
     font-size: 14px;
     color: #ffffff;
     cursor: pointer;
-    margin-top: auto; /* Pushes the "Need Help" section to the bottom */
+    margin-top: auto;
     padding: 10px 15px;
     display: flex;
     align-items: center;

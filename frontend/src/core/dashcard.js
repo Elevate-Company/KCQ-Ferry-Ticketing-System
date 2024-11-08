@@ -4,13 +4,14 @@ import TicketSales from './ticket_sales';  // Import TicketSales
 import TicketSold from './ticket_sold';    // Import TicketSold
 import AvailableBoat from './available_boat'; // Import AvailableBoat
 import Passenger from './passenger'; // Import Passenger component
+import UpcomingTripCard from './upcomingtripcard'; // Import UpcomingTripCard
 
 const DashCard = () => {
   return (
     <div className="container mt-4">
       <div className="row justify-content-center">
         <div className="col-md-12 col-lg-15"> {/* Adjusted width of the card on large screens */}
-          <div className="card light-shadow border-0 mb-4">  {/* Using light-shadow for custom shadow */}
+          <div className="card no-shadow-no-border mb-4">  {/* Removed shadow and border */}
             <div className="card-body">
               <h2 className="card-title">Welcome, Employee Name!</h2>
 
@@ -30,6 +31,11 @@ const DashCard = () => {
                 
                 {/* Passenger component aligned horizontally with Available Boats */}
                 <Passenger />
+              </div>
+
+              {/* New Upcoming Trip Card */}
+              <div className="mt-4">
+                <UpcomingTripCard />
               </div>
             </div>
           </div>

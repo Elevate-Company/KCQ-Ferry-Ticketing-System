@@ -20,7 +20,7 @@ function TicketSold() {
           zIndex: 1  // Ensures the image stays on top
         }} 
       />
-      <div className="card-body mt-5">
+      <div className="card-body mt-5 fade-in-up">
         <h5 className="card-title">Total Tickets Sold This Month</h5>
         <p className="card-text">{ticketsSold} Tickets</p>
         <p>Today</p>

@@ -66,11 +66,12 @@
     margin: 0;
 }
 
-/* Ensures full width for .light-shadow on larger screens */
-.card.light-shadow {
-    width: 100%;
-    max-width: 100%;
+/* Remove border and shadow from the card */
+.card.no-shadow-no-border {
+    border: none !important;   /* Remove border */
+    box-shadow: none !important; /* Remove box-shadow */
 }
+
 
 /* Adjust child card alignment and spacing */
 .d-flex {
