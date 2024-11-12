@@ -6,9 +6,9 @@ import Tripcard from './tripcard';  // Import Tripcard component
 function UpcomingTripCard() {
   // Example data for upcoming trips
   const trips = [
-    { id: 1, from: 'Cebu', destination: 'Manila', boatImage: 'boatlogo.png', dashImage: 'dash.png' },
-    { id: 2, from: 'Davao', destination: 'Cagayan de Oro', boatImage: 'boatlogo.png', dashImage: 'dash.png' },
-    { id: 3, from: 'Iloilo', destination: 'Negros', boatImage: 'boatlogo.png', dashImage: 'dash.png' },
+    { id: 1, from: 'Cebu', destination: 'North Korea', boatImage: 'boatlogo.png', dashImage: 'dash.png' },
+    { id: 2, from: 'Davao', destination: 'Japan', boatImage: 'boatlogo.png', dashImage: 'dash.png' },
+    { id: 3, from: 'Iloilo', destination: 'China', boatImage: 'boatlogo.png', dashImage: 'dash.png' },
   ];
 
   return (

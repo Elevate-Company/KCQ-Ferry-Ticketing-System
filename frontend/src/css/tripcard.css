@@ -1,50 +1,78 @@
 /* Styling for the tripcard container */
 .navbar-card {
-    display: flex; /* Aligns children elements in a row */
-    align-items: center; /* Vertically centers the items */
-    padding: 10px;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Card shadow */
-    border-radius: 10px; /* Rounded corners */
-    margin: 10px;
+  display: flex;
+  flex-direction: row; /* Horizontal layout on larger screens */
+  align-items: center;
+  padding: 15px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin: 10px;
+  width: 100%;
+  max-width: 600px; /* Longer card on desktop */
 }
 
 /* Styling for the image container */
 .profile-avatar {
-    margin-right: 15px; /* Space between the image and text */
+  margin-right: 20px;
 }
 
 .avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%; /* Circular avatar */
-    object-fit: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
-/* Styling for the text beside the image */
+/* Common styling for "From" and "To" sections */
 .text-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0 10px;
+  flex-grow: 1;
 }
 
 .text-content p {
-    margin: 0;
-    font-size: 14px;
-    color: #666;
+  margin: 0;
+  font-size: 14px;
+  color: #666;
 }
 
-/* Container for the destination text */
-.h6-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center; /* Aligns the text and the image */
+/* Styling for the 'From' and 'To' destinations */
+.h6-container h6 {
+  margin: 5px 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
 }
 
-.text-content h6 {
-    margin: 0;
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
+/* Horizontal dashed line separator */
+.separator {
+  width: 100%;
+  border-top: 1px dashed #ddd;
+  margin: 10px 0;
+}
+
+/* Responsive adjustments for mobile view */
+@media (max-width: 576px) {
+  .navbar-card {
+      flex-direction: column; /* Stack elements vertically on small screens */
+      max-width: 100%;
+      padding: 10px;
+  }
+  .profile-avatar {
+      margin-right: 0;
+      margin-bottom: 10px;
+  }
+  .avatar {
+      width: 40px;
+      height: 40px;
+  }
+  .h6-container h6 {
+      font-size: 16px;
+  }
+  .separator {
+      width: 80%; /* Narrower separator on small screens */
+  }
 }
