@@ -20,21 +20,21 @@
 }
 
 /* Styling for the search input */
-.search-input {
+.search-inputt {
   padding: 10px;
   font-size: 14px;
-  border: 1px solid #ccc;  /* Same border style */
+  border: 1px solid #ccc;
   border-radius: 5px;
-  width: 200px; /* Adjusted width to be a bit larger */
-  margin-right: 1px; /* Reduced space between search and filter */
+  width: 180px; /* Reduced width for a more compact search input */
+  margin-right: 10px; /* Adjusted space between search and filter */
 }
 
 /* Styling for the dropdown filter */
 .filter-dropdown {
   padding: 10px;
   font-size: 14px;
-  border: 1px solid #ccc;  /* Matching border style */
+  border: 1px solid #ccc;
   border-radius: 5px;
-  width: 120px; /* Adjust dropdown width */
+  width: 150px; /* Reduced width for the filter dropdown */
   cursor: pointer;
 }

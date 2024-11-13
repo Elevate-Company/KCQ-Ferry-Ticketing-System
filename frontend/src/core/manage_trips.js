@@ -10,7 +10,7 @@ function ManageTrips() {
         <h1 className="header">All Trips</h1>
         
         {/* Search component */}
-        <input type="text" className="search-input" placeholder="Search Trip..." />
+        <input type="text" className="search-inputt" placeholder="Search Trip..." />
         
         {/* Dropdown filter */}
         <select className="filter-dropdown">
