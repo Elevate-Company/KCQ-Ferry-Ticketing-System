@@ -1,0 +1,29 @@
+.navbar-card2 {
+    background-color: #091057;
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 10px 15px; /* Further reduce padding for a more compact card */
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    color: white;
+    height: 50px; /* Adjusted height for more space */
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+  }
+  
+  .trip-info-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; /* Ensure items stretch across the card */
+    align-items: center; /* Center the content vertically within the row */
+  }
+  
+  .trip-info-row p {
+    margin: 0 10px;
+    font-size: 14px; /* Reduced font size for better alignment */
+    flex: 1;
+    text-align: center;
+  }
+  

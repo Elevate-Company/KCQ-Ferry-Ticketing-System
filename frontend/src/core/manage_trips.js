@@ -1,5 +1,6 @@
 import React from 'react';
-import '../css/managetrips.css';  // Import the CSS file here
+import '../css/managetrips.css';  // Import the CSS file for ManageTrips
+import TripMenu from './trip_menu';  // Import TripMenu component
 
 function ManageTrips() {
   return (
@@ -7,6 +8,7 @@ function ManageTrips() {
       {/* Header and Search */}
       <div className="header-container">
         <h1 className="header">All Trips</h1>
+        
         {/* Search component */}
         <input type="text" className="search-input" placeholder="Search Trip..." />
         
@@ -18,7 +20,10 @@ function ManageTrips() {
           <option value="cancelled">Cancelled</option>
         </select>
       </div>
-      <p></p>
+
+      {/* Display the TripMenu component */}
+      <TripMenu className="mt-5" />
+
     </div>
   );
 }
