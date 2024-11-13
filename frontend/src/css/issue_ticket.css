@@ -1,0 +1,128 @@
+.issue_ticket
+.tripselect{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  width: 100%;
+  max-width: 1000px;}
+.Ferry{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 15px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin: 10px;
+    width: 100%;
+    max-width: 1000px;
+}
+.Tcontact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  width: 100%;
+  max-width: 1000px;
+}
+
+/* Heading styling */
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+/* Style for each form group (input and select) */
+.form-group {
+  margin-bottom: 1.5rem; /* Adds space between fields */
+  position: relative;
+}
+
+/* Styling the label */
+.form-group label {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.5rem;
+  display: block; /* Make label block-level */
+}
+
+
+.form-control {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  color: #495057;
+  background-color: #ffffff;
+  border: 1px solid #ced4da; 
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: all 0.3s ease; 
+}
+.form-control:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.25); 
+}
+select.form-control {
+  
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 25px;
+}
+
+.form-control:hover {
+  border-color: #80bdff;
+}
+
+button[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  font-size: 1rem;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Add space between form fields */
+.form-group + .form-group {
+  margin-top: 20px;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .Tcontact {
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .form-control {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  button[type="submit"] {
+    padding: 10px 20px;
+  }
+}
