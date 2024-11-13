@@ -1,159 +1,41 @@
-/* Styling for the tripcard container */
-.navbar-card {
+/* Style for the manage trips container */
+.manage-trips-container {
+  padding: 20px;
+}
+
+/* Styling for the header container */
+.header-container {
   display: flex;
-  flex-direction: row;
   align-items: center;
-  padding: 15px;
-  background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  margin: 10px;
+  justify-content: flex-end; /* Ensure the content is aligned to the right */
   width: 100%;
-  max-width: 1000px;
+  margin-bottom: 20px;
 }
 
-/* Styling for the image container */
-.profile-avatar {
-  margin-right: 20px;
-}
-
-.avatar {
-  width: 30px;
-  height: auto;
-  border-radius: 50%;
-}
-
-/* Common styling for "From" and "To" sections */
-.text-content, .date-content {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin: 0 5px; /* Reduced margin for even tighter spacing */
-  flex-grow: 1;
-  padding: 0; /* Remove padding for closer alignment */
-}
-
-.text-content p, .date-content p {
-  margin: 0;
-  font-size: 14px;
-  color: #666;
-}
-
-/* Styling for the 'From', 'To' destinations, and Date */
-.h6-container h6 {
-  margin: 3px 0; /* Reduced top and bottom margins to bring content closer */
-  font-size: 18px;
+/* Styling for the header text */
+.header {
+  font-size: 24px; /* Reduced size of the header */
   color: #333;
+  margin-right: 20px; /* Space between header and search/filter */
 }
 
-.h66-container h6 {
-  margin: 3px 0;
-  font-size: 18px;
-  font-weight: bold;
-  color: #333;
-}
-
-/* Styling for Date specifically */
-.date-content {
-  margin-left: 10%; /* Adjusted to move the date component to the right without affecting 'To' */
-  display: flex;
-  flex-direction: column; /* Ensures 'Date' text is above the date */
-}
-
-.date-boat-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start; /* Align items to the left to avoid stretching them */
-  width: 100%;
-}
-
-.date-content h6 {
-  font-weight: normal;
-  color: #091057;
-  margin-right: 10px;
-}
-
-/* Boat number and boat name aligned horizontally */
-.boat-info {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between; /* Space out boat number and boat name */
-  width: 100%; /* Ensure boat number and boat name take full width */
-}
-
-.boat-number {
+/* Styling for the search input */
+.search-input {
+  padding: 10px;
   font-size: 14px;
-  color: #555;
-  font-weight: normal;
-  margin-right: 20px; /* Add space between boat number and boat name */
+  border: 1px solid #ccc;  /* Same border style */
+  border-radius: 5px;
+  width: 250px; /* Adjusted width */
+  margin-left: 10px; /* Space between search and filter */
 }
 
-.boat-name {
+/* Styling for the dropdown filter */
+.filter-dropdown {
+  padding: 10px;
   font-size: 14px;
-  color: #555;
-  font-weight: normal;
-  margin-left: 10px; /* Adds space between boat number and boat name */
-  text-align: right; /* Align boat name to the right */
-}
-
-/* Horizontal dashed line separator */
-.separator {
-  width: 20%; /* Keep separator width as specified */
-  border-top: 1px dashed #ddd;
-  margin: 0;
-}
-
-/* Styling for dynamic distance between h6 elements */
-.date-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  width: 100%;
-  margin-top: 0;
-}
-
-.date-content .h6-container {
-  margin-right: auto; /* Push it closer to the left */
-}
-
-/* Responsive adjustments for mobile view */
-@media (max-width: 576px) {
-  .navbar-card {
-    flex-direction: column;
-    max-width: 100%;
-    padding: 10px;
-  }
-  
-  .profile-avatar {
-    margin-right: 0;
-    margin-bottom: 10px;
-  }
-  
-  .avatar {
-    width: 40px;
-    height: 40px;
-  }
-  
-  .h6-container h6 {
-    font-size: 16px;
-  }
-
-  .separator {
-    width: 80%; /* Adjust separator width on mobile */
-  }
-
-  .text-content {
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 10px;
-  }
-
-  .date-boat-container {
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-  }
+  border: 1px solid #ccc;  /* Matching border style */
+  border-radius: 5px;
+  width: 150px; /* Adjust dropdown width */
+  cursor: pointer;
+  margin-right: 10px; /* Space between the filter and search */
 }
