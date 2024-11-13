@@ -4,7 +4,7 @@ import profileImage from '../assets/avatar.png';
 
 function Navbar() {
   return (
-    <div className="navbar-card">
+    <div className="navbar-card1">
       <div className="search-container">
         <i className="fas fa-search search-icon"></i> {}
         <input type="text" placeholder="Search..." className="search-input" />
