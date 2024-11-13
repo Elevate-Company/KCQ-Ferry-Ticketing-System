@@ -1,4 +1,7 @@
-.issue_ticket
+.Iticks{
+  display: flex;
+  flex-direction: row;
+}
 .tripselect{
   display: flex;
   flex-direction: column;
@@ -40,21 +43,18 @@ h2 {
   margin-bottom: 30px;
 }
 
-/* Style for each form group (input and select) */
 .form-group {
-  margin-bottom: 1.5rem; /* Adds space between fields */
+  margin-bottom: 1.5rem;
   position: relative;
 }
 
-/* Styling the label */
 .form-group label {
   font-size: 1rem;
   font-weight: bold;
   color: #333;
   margin-bottom: 0.5rem;
-  display: block; /* Make label block-level */
+  display: block; 
 }
-
 
 .form-control {
   width: 100%;

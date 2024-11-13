@@ -6,7 +6,7 @@ const Tripselector = () => {
     <div className="tripselect">
       <h1>Select Trip</h1>
       <div className="Ferry">
-        <p>ferry but not platipus</p>
+      <image src="../assets/boatlogo.png" alt="Description of the image" />
       </div>
       <div className="Ferry">
       <p>ferry but not platipus2</p>
