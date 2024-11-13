@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../css/available_boat.css';
-import boatImage from '../assets/boat.png';
+import '../../css/available_boat.css';
+import boatImage from '../../assets/boat.png';
 
 function AvailableBoat() {
   return (

@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../css/passenger.css';
-import personImage from '../assets/person.png';
+import '../../css/passenger.css';
+import personImage from '../../assets/person.png';
 
 function Passenger() {
   return (

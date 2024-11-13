@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Ensure Bootstrap is imported
-import ticketImage from '../assets/ticket.png'; // Corrected import path
+import ticketImage from '../../assets/ticket.png'; // Corrected import path
 
 function TicketSold() {
   const ticketsSold = 1200;  // Set the number of tickets sold

@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';  // Import Bootstrap
-import '../css/upcomingtripcard.css';  // Import custom styles
+import '../../css/upcomingtripcard.css';  // Import custom styles
 import Tripcard from './tripcard';  // Import Tripcard component
 
 function UpcomingTripCard() {
@@ -24,8 +24,8 @@ function UpcomingTripCard() {
                   key={trip.id}
                   from={trip.from}
                   destination={trip.destination}
-                  boatImage={require(`../assets/${trip.boatImage}`)}  // Dynamic boat image path
-                  dashImage={require(`../assets/${trip.dashImage}`)}  // Dynamic dash image path
+                  boatImage={require(`../../assets/${trip.boatImage}`)}  // Dynamic boat image path
+                  dashImage={require(`../../assets/${trip.dashImage}`)}  // Dynamic dash image path
                 />
               ))}
             </div>

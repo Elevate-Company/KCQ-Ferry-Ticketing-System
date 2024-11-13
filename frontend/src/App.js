@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Dashboard from './core/components';
-import DashboardScreen from './core/dashboard';
+import Dashboard from './core/components';  // Assuming components.js is inside core/
+import DashboardScreen from './core/dashboard/dashboard';  // Corrected path
 import IssueTicket from './core/issue_ticket';
 import ManageTrips from './core/manage_trips';
 import ManageTickets from './core/manage_tickets';
@@ -9,8 +9,6 @@ import Profile from './core/profile';
 import Reports from './core/reports';
 import Settings from './core/settings';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-
 
 function App() {
   return (
