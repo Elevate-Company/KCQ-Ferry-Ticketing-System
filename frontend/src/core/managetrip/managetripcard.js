@@ -16,7 +16,34 @@ function ManageTripCard() {
         {/* From component with text on the left */}
         <div className="from-component">
           <p className="from-text">From</p>
-          <h4 className="destination">Cebu</h4>
+          <h4 className="from-destination">Cebu</h4>
+        </div>
+
+        {/* Horizontal dashed line separator */}
+        <div className="separator" />
+
+        {/* To component with text on the left */}
+        <div className="to-component">
+          <p className="to-text">To</p>
+          <h4 className="to-destination">Cebu</h4>
+        </div>
+
+        {/* Departure date component with ID */}
+        <div className="departure-date-component mt-3">
+          <h4 className="departure-date">January 15, 2024</h4>
+          <h4 className="departure-id">PBO-1234</h4>
+          <h4 className="departure-text">Pumboat Express</h4>
+          <h4 className="departure-capacity">150</h4>
+        </div>
+
+        {/* Vertical separator, trash icon, and View Details button */}
+        <div className="vertical-separator">
+          <button type="button" className="trash-button">
+            <i className="fas fa-trash"></i>
+          </button>
+          <button type="button" className="view-details-button">
+            View Details
+          </button>
         </div>
       </div>
     </div>
