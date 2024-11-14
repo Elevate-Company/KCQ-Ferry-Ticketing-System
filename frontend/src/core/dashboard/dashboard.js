@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../css/dashboard.css';  // Corrected path to dashboard.css
+import '../../css/dashboard/dashboard.css';  // Corrected path to dashboard.css
 import DashCard from './dashcard'; // Corrected import path for DashCard
 import Navbar from '../navbar';  // Import the Navbar component
 

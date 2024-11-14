@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../../css/passenger.css';
+import '../../css/dashboard/passenger.css';
 import personImage from '../../assets/person.png';
 
 function Passenger() {

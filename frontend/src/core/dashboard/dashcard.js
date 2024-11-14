@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../css/dashcard.css';
+import '../../css/dashboard/dashcard.css';
 import TicketSales from './ticket_sales';
 import TicketSold from './ticket_sold';
 import AvailableBoat from './available_boat';

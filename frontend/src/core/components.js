@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
-import '../css/dashboard.css';
+import '../css/dashboard/dashboard.css';
 import '../css/components.css';
 import logo from '../assets/kcq.png';
 import dashboardIcon from '../assets/dashboard.png';

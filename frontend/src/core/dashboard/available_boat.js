@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../../css/available_boat.css';
+import '../../css/dashboard/available_boat.css';
 import boatImage from '../../assets/boat.png';
 
 function AvailableBoat() {

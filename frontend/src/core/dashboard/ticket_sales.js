@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../css/ticket_sales.css'; // Custom CSS file for wave animation
+import '../../css/dashboard/ticket_sales.css'; // Custom CSS file for wave animation
 
 function TicketSales() {
   const totalSales = 28000;  // Set total sales value to 28,000

@@ -1,9 +1,7 @@
 import React from 'react';
 import '../../css/managetrips.css';  // Import the CSS file for ManageTrips
 import TripMenu from './trip_menu';  // Import TripMenu component
-import ManageTripCard from './managetripcard';  // Make sure to use the correct relative path
-
-
+import ManageTripCard from './managetripcard';  // Correct path for ManageTripCard
 
 function ManageTrips() {
   return (
@@ -24,14 +22,13 @@ function ManageTrips() {
         </select>
       </div>
 
-      {/* Display the ManageTripCard component */}
-      <div className="card-container">
-        <ManageTripCard />
-        {/* You can add more cards here */}
-      </div>
-
-      {/* Display the TripMenu component */}
+      {/* TripMenu.js */}
       <TripMenu className="mt-5" />
+
+      {/* ManagetripCard.js */}
+      <div className="card-container mt-3">
+        <ManageTripCard />
+      </div>
     </div>
   );
 }

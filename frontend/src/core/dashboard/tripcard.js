@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../css/tripcard.css';
+import '../../css/dashboard/tripcard.css';
 
 function Tripcard({ from, destination, boatImage, date = "12/25/2024", boatNumber = "PBO-1234" }) {
   return (

@@ -1,0 +1,57 @@
+.empty-card {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+    border: none; /* Remove border */
+    display: flex;
+    flex-direction: row; /* Arrange items in a row */
+    align-items: center; /* Vertically center content */
+    padding-left: 0; /* Remove padding on the left */
+    position: relative; /* Allows for absolute positioning of checkbox */
+    margin: 20px auto; /* Center card horizontally */
+    width: 100%; /* Keeps card width at 100% of its parent */
+    max-width: 1350px; /* Max width consistent with navbar-card2 */
+    padding: 10px 15px; /* Card padding */
+    border-radius: 10px; /* Rounded corners */
+    height: auto; /* Allow height to adjust based on content */
+}
+
+.card-checkbox {
+    position: absolute; /* Positions the checkbox absolutely within the card */
+    left: 15px; /* Place the checkbox at the very left edge of the card */
+    top: 50%; /* Vertically center the checkbox */
+    transform: translateY(-50%); /* Adjust the position to truly center it */
+}
+
+.boat-logo {
+    position: absolute; /* Positioning boat logo next to checkbox */
+    left: 45px; /* Space the boat logo a little from the checkbox */
+    top: 50%; /* Vertically center the logo */
+    transform: translateY(-50%); /* Adjust the vertical alignment */
+    width: 30px; /* Set a width for the image */
+    height: auto; /* Keep the aspect ratio */
+}
+
+.card-body {
+    display: flex;
+    justify-content: flex-start; /* Aligns the contents to the left */
+    align-items: center; /* Vertically centers the content */
+    padding-left: 70px; /* Padding to avoid overlap with the checkbox and logo */
+    width: 100%;
+}
+
+.from-component {
+    display: flex;
+    flex-direction: column; /* Stack From and Cebu vertically */
+    align-items: flex-start; /* Align text to the left */
+    margin-left: 10px; /* Reduce margin to move it closer to the boat logo */
+}
+
+.from-text {
+    font-size: 14px;
+    color: #666; /* Light color for the label */
+}
+
+.destination {
+    font-size: 18px;
+    font-weight: bold;
+    color: #091057; /* Adjust this color */
+}

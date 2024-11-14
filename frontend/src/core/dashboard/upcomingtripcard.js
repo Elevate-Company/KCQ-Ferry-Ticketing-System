@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';  // Import Bootstrap
-import '../../css/upcomingtripcard.css';  // Import custom styles
+import '../../css/dashboard/upcomingtripcard.css';  // Import custom styles
 import Tripcard from './tripcard';  // Import Tripcard component
 
 function UpcomingTripCard() {
