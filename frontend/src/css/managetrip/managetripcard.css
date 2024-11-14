@@ -1,0 +1,141 @@
+.empty-card {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+    border: none; /* Remove border */
+    display: flex;
+    flex-direction: row; /* Arrange items in a row */
+    align-items: center; /* Vertically center content */
+    padding-left: 0; /* Remove padding on the left */
+    position: relative; /* Allows for absolute positioning of checkbox */
+    margin: 20px auto; /* Center card horizontally */
+    width: 100%; /* Keeps card width at 100% of its parent */
+    max-width: 1350px; /* Max width consistent with navbar-card2 */
+    padding: 10px 15px; /* Card padding */
+    border-radius: 10px; /* Rounded corners */
+    height: auto; /* Allow height to adjust based on content */
+}
+
+.card-checkbox {
+    position: absolute; /* Positions the checkbox absolutely within the card */
+    left: 15px; /* Place the checkbox at the very left edge of the card */
+    top: 50%; /* Vertically center the checkbox */
+    transform: translateY(-50%); /* Adjust the position to truly center it */
+}
+
+.boat-logo {
+    position: absolute; /* Positioning boat logo next to checkbox */
+    left: 45px; /* Space the boat logo a little from the checkbox */
+    top: 50%; /* Vertically center the logo */
+    transform: translateY(-50%); /* Adjust the vertical alignment */
+    width: 30px; /* Set a width for the image */
+    height: auto; /* Keep the aspect ratio */
+}
+
+.card-body1 {
+    display: flex;
+    align-items: center; /* Vertically center the content */
+    justify-content: flex-start; /* Align items to the left */
+    width: 100%;
+    padding-left: 70px; /* Padding for spacing between logo and text */
+}
+
+.from-component,
+.to-component {
+    display: flex;
+    flex-direction: column; /* Stack From/To and their respective destinations vertically */
+    align-items: flex-start; /* Align text to the left */
+    margin-left: 20px; /* Adjust this value to control spacing between components */
+}
+
+.from-text,
+.to-text {
+    font-size: 10px;
+    color: #666; /* Light color for the label */
+    margin-bottom: 2px; /* Reduced margin to bring text closer to the destination */
+}
+
+.from-destination,
+.to-destination {
+    font-size: 18px;
+    color: #091057; /* Adjust this color */
+}
+
+/* Styling for the separator */
+.separator {
+    width: 5%; /* Reduced width for the separator */
+    border-top: 1px dashed grey;
+    margin: 15px 15px;
+}
+
+/* Departure date, ID, text "Pumboat Express", and capacity */
+.departure-date-component {
+    display: flex;
+    align-items: center; /* Align items horizontally */
+    margin-left: 40px; /* Adjust spacing from other components */
+}
+
+.departure-date,
+.departure-id,
+.departure-text,
+.departure-capacity {
+    font-size: 14px;
+    color: #091057; /* Same color for all */
+    margin-right: 70px; /* Space between elements */
+}
+
+.departure-id {
+    font-size: 14px; /* Same size as departure date */
+    font-weight: normal; /* No bold text */
+}
+
+.departure-text {
+    font-size: 14px; /* Same size as the ID */
+    font-weight: normal; /* Regular font weight for the text */
+}
+
+.departure-capacity {
+    font-size: 14px;
+    color: #091057;
+    font-weight: normal; /* Regular font weight */
+    margin-right: 30px; /* Space between text and capacity number */
+}
+
+/* Solid Vertical Line Separator */
+.vertical-separator {
+    height: 30px; /* Height of the separator */
+    border-left: 2px solid grey; /* Solid vertical line */
+    margin-left: 70px; /* Space between capacity and separator */
+    display: flex;
+    align-items: center; /* Center the button vertically */
+    justify-content: center;
+    margin-right: 10px; /* Space to the right */
+}
+
+.trash-button {
+    background: none; /* Remove background */
+    border: none; /* Remove border */
+    color: #091057; /* Icon color */
+    font-size: 14px; /* Icon size */
+    cursor: pointer; /* Pointer cursor on hover */
+    margin-left: 50px; /* Space between icon and vertical separator */
+    padding: 0; /* Remove padding */
+}
+
+.trash-button:hover {
+    color: #dc3545; /* Change color on hover for feedback */
+}
+
+/* View Details Button */
+.view-details-button {
+    background-color: rgb(189, 189, 189); /* Light grey background */
+    border: 1px solid grey; /* Grey border */
+    border-radius: 25px; /* Rounded corners */
+    color: #091057; /* Text color */
+    padding: 5px 10px; /* Button padding */
+    font-size: 12px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    margin-left: 30px;
+}
+
+.view-details-button:hover {
+    background-color: #e2e3e5; /* Slightly darker grey on hover */
+}
