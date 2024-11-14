@@ -1,17 +1,21 @@
 .Iticks{
   display: flex;
-  flex-direction: row;
+  flex-direction: row; /* Align items horizontally */
+  justify-content: space-between; /* Optional: You can adjust spacing between .tripselect and .Tcontact */
+  gap: 25px;
 }
 .tripselect{
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   padding: 15px;
   background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   width: 100%;
-  max-width: 1000px;}
+  max-width: 1000px;
+}
+
 .Ferry{
     display: flex;
     flex-direction: row;
@@ -27,59 +31,59 @@
 .Tcontact {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 15px;
+  align-items: stretch;
+  padding: 10px;
   background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   width: 100%;
   max-width: 1000px;
 }
-
-/* Heading styling */
 h2 {
   text-align: center;
   color: #333;
-  margin-bottom: 30px;
+  margin-bottom: 40px; /* Increased margin to give more space */
 }
 
 .form-group {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem; /* Increased margin bottom for more spacing between fields */
   position: relative;
 }
 
 .form-group label {
-  font-size: 1rem;
+  font-size: 1.1rem; /* Increased font size for better visibility */
   font-weight: bold;
   color: #333;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.6rem; /* Increased margin for more space */
   display: block; 
 }
 
 .form-control {
   width: 100%;
-  padding: 12px;
-  font-size: 1rem;
+  font-size: 1.1rem; /* Increased font size */
   color: #495057;
   background-color: #ffffff;
   border: 1px solid #ced4da; 
   border-radius: 4px;
   box-sizing: border-box;
-  transition: all 0.3s ease; 
+  transition: all 0.3s ease;
+  height: 50px; /* Increased height for input fields */
 }
+
 .form-control:focus {
   border-color: #007bff;
   outline: none;
   box-shadow: 0 0 8px rgba(0, 123, 255, 0.25); 
 }
+
 select.form-control {
-  
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   background-repeat: no-repeat;
   background-position: right 10px center;
   background-size: 25px;
+  height: 50px; /* Increased height for select dropdown */
 }
 
 .form-control:hover {
@@ -89,13 +93,14 @@ select.form-control {
 button[type="submit"] {
   background-color: #007bff;
   color: #fff;
-  font-size: 1rem;
-  padding: 12px 25px;
+  font-size: 1.1rem; /* Increased font size */
+  padding: 16px 30px; /* Increased padding for button */
   border: none;
   border-radius: 4px;
   cursor: pointer;
   width: 100%;
   transition: background-color 0.3s ease;
+  height: 50px; /* Increased height for button */
 }
 
 button[type="submit"]:hover {
@@ -104,8 +109,9 @@ button[type="submit"]:hover {
 
 /* Add space between form fields */
 .form-group + .form-group {
-  margin-top: 20px;
+  margin-top: 25px; /* Increased space between form groups */
 }
+
 
 /* Responsive styling */
 @media (max-width: 768px) {

@@ -7,6 +7,10 @@ const Tripcontact = () => {
   const [email, setEmail] = useState('');
   const [ticketCount, setTicketCount] = useState('1');
 
+  const ticketPrice = 10; // Price per ticket (you can adjust this)
+
+  const totalPrice = ticketPrice * ticketCount;
+
   const handleSubmit = (e) => {
     e.preventDefault();
     alert(`Form submitted with the following details:
@@ -17,7 +21,7 @@ const Tripcontact = () => {
   };
 
   return (
-    <div className="Tcontact container mt-5">
+    <div className="Tcontact container mb-5">
       <h2>Contact Information</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
@@ -70,7 +74,12 @@ const Tripcontact = () => {
             ))}
           </select>
         </div>
-        <button type="submit" className="btn btn-primary">Submit</button>
+
+        <div className="form-group">
+          <h4>Total: ${totalPrice}</h4> 
+        </div>
+
+        <button type="submit" className="btn btn-primary">Generate Ticket</button>
       </form>
     </div>
   );
