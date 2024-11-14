@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../css/managetrips.css';  // Import the CSS file for ManageTrips
+import '../../css/managetrip/managetrips.css';  // Import the CSS file for ManageTrips
 import TripMenu from './trip_menu';  // Import TripMenu component
 import ManageTripCard from './managetripcard';  // Correct path for ManageTripCard
 

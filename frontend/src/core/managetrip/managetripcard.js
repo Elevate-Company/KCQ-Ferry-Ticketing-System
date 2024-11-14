@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Ensure Bootstrap is loaded
-import '../../css/managetripcard.css'; // Import the custom CSS
+import '../../css/managetrip/managetripcard.css'; // Import the custom CSS
 import boatLogo from '../../assets/boatlogo.png'; // Import your logo
 
 function ManageTripCard() {
