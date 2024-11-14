@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import '../css/issue_ticket.css';
+import '../../css/issue_ticket.css';
 
 const Tripcontact = () => {
   const [passengerName, setPassengerName] = useState('');

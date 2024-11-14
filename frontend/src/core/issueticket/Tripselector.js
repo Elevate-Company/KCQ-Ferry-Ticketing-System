@@ -1,5 +1,5 @@
 import React from "react";
-import '../css/issue_ticket.css';  
+import '../../css/issue_ticket.css';  
 
 const Tripselector = () => {
   return (

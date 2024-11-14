@@ -1,5 +1,5 @@
 import React from 'react';
-import '../css/trip_menu.css';
+import '../../css/trip_menu.css';
 
 function TripMenu() {
   return (
