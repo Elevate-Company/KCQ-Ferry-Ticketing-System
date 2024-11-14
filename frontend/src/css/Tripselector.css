@@ -1,0 +1,108 @@
+.responsive-card {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  @media (max-width: 767px) {
+    .responsive-card {
+      max-width: 90%;
+    }
+  }
+  
+  /* Tcard.css */
+  .navbar-cardT {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 16px;
+  }
+  
+  .profile-avatarT {
+    width: 48px;
+    height: 48px;
+    border-radius: 50px;
+    overflow: hidden;
+    margin-right: 16px;
+  }
+  
+  .avatarT {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .text-contentT {
+    flex-grow: 1;
+  }
+  
+  .text-contentT p {
+    margin: 0;
+    font-size: 14px;
+    color: #9a9a9a;
+  }
+  
+  .h6-containerT {
+    display: flex;
+    align-items: center;
+  }
+  
+  .h6-containerT h6 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333333;
+  }
+  
+  .separatorT {
+    width: 1px;
+    height: 32px;
+    background-color: #e6e6e6;
+    margin: 0 16px;
+  }
+  
+  .date-contentT {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  
+  .date-contentT p {
+    margin: 0;
+    font-size: 14px;
+    color: #9a9a9a;
+  }
+  
+  .date-boat-containerT {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  
+  .date-boat-containerT h6 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333333;
+  }
+  
+  .boat-infoT {
+    display: flex;
+    align-items: center;
+    margin-top: 4px;
+  }
+  
+  .boat-numberT {
+    margin: 0;
+    font-size: 14px;
+    color: #9a9a9a;
+    margin-right: 8px;
+  }
+  
+  .boat-nameT {
+    margin: 0;
+    font-size: 14px;
+    color: #9a9a9a;
+  }
