@@ -30,19 +30,19 @@
     height: auto; /* Keep the aspect ratio */
 }
 
-.card-body {
+.card-body1 {
     display: flex;
-    justify-content: flex-start; /* Aligns the contents to the left */
     align-items: center; /* Vertically centers the content */
-    padding-left: 70px; /* Padding to avoid overlap with the checkbox and logo */
+    justify-content: flex-start; /* Aligns items to the left */
     width: 100%;
+    padding-left: 70px; /* Padding for spacing between logo and text */
 }
 
 .from-component {
     display: flex;
     flex-direction: column; /* Stack From and Cebu vertically */
     align-items: flex-start; /* Align text to the left */
-    margin-left: 10px; /* Reduce margin to move it closer to the boat logo */
+    margin-left: 10px; /* Adjust this value to bring it closer to the boat logo */
 }
 
 .from-text {

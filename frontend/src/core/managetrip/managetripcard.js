@@ -6,7 +6,7 @@ import boatLogo from '../../assets/boatlogo.png'; // Import your logo
 function ManageTripCard() {
   return (
     <div className="card empty-card">
-      <div className="card-body">
+      <div className="card-body1">
         {/* Checkbox on the left */}
         <input type="checkbox" className="card-checkbox" />
 
