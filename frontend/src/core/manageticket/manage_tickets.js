@@ -29,7 +29,11 @@ function ManageTrips() {
       <div className="empty-card-ticket">
         <div className="card-content-ticket">
           <div className="destination-ticket">DESTINATION</div>
-          <div className="destination-ticket">CUSTOMER</div>
+          <div className="destination-ticket">
+            CUSTOMER
+            {/* Font Awesome icon for unsorted */}
+            <i className="fas fa-sort unsorted-icon-ticket"></i>
+          </div>
           <div className="destination-ticket">ID</div>
           <div className="boat-type-ticket">TYPE BOAT</div>
           <div className="capacity-ticket">CAPACITY</div>

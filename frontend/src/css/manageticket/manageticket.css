@@ -109,3 +109,8 @@
     text-align: center;
   }
   
+  .unsorted-icon-ticket {
+    font-size: 0.80rem; /* Adjust the size of the icon */
+    margin-left: 5px; /* Space between the text and the icon */
+  }
+  
