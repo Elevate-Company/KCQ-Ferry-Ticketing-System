@@ -1,0 +1,111 @@
+/* Container for the entire Manage Trips section */
+.manage-trips-container {
+    max-width: 1400px;
+    border-radius: 10px;
+  }
+  
+  /* Header, Search, and Dropdown aligned horizontally */
+  .header-search-dropdown-row {
+    display: flex;
+    justify-content: space-between; /* Space between the header and the right-aligned components */
+    align-items: center;
+    width: 100%; /* Ensure the row takes up the full width */
+  }
+  
+  /* Header styling */
+  .header-ticket {
+    font-size: 1.70rem;
+    color: #091057;
+    margin-left: 0; /* No left margin needed */
+    flex: 1; /* Let the header take the remaining space */
+  }
+  
+  /* Container for the search and dropdown on the right */
+  .search-dropdown-container {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space between the search and dropdown */
+    justify-content: flex-end; /* Align them to the right */
+  }
+  
+  /* Search input styling */
+  .search-input-ticket {
+    width: 200px; /* Reduced width of the search input */
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.2s ease-in-out;
+  }
+  
+  .search-input-ticket:focus {
+    border-color: #007bff;
+  }
+  
+  /* Dropdown styling */
+  .filter-dropdown-ticket {
+    width: 150px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    outline: none;
+    transition: border-color 0.2s ease-in-out;
+  }
+  
+  .filter-dropdown-ticket:focus {
+    border-color: #007bff;
+  }
+  
+  /* Empty card styling */
+  .empty-card-ticket {
+    background-color: #091057;
+    color: white;
+    margin-top: 20px;
+    padding: 15px; /* Reduce padding to reduce height */
+    border-radius: 10px;
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    height: auto; /* Fixed height for the card */
+  }
+  
+  /* Content inside the empty card */
+  .card-content-ticket {
+    display: flex;
+    justify-content: space-between; /* Space between content elements */
+    width: 100%;
+    gap: 15px;
+  }
+  
+  /* Styling for each content section inside the card */
+  .destination-ticket,
+  .boat-type-ticket,
+  .capacity-ticket {
+    font-size: 0.75rem; /* Adjust font size */
+    color: white;
+    width: 18%; /* Adjust width for alignment */
+    text-align: center; /* Center the text */
+  }
+  
+  .destination-ticket {
+    width: 20%; /* Adjust the width for "DESTINATION" */
+  }
+  
+  .boat-type-ticket {
+    width: 20%; /* Adjust the width for "TYPE BOAT" */
+  }
+  
+  .capacity-ticket {
+    width: 20%; /* Adjust the width for "CAPACITY" */
+  }
+  
+  /* Styling for the "CUSTOMER" and "ID" sections */
+  .destination-ticket:nth-child(2),
+  .destination-ticket:nth-child(3) {
+    width: 25%; /* These sections take up more space */
+    text-align: center;
+  }
+  

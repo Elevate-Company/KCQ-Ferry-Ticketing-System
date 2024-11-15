@@ -33,7 +33,7 @@
 .search-input {
   width: 100%;
   padding: 8px 10px; /* Adjust padding to prevent collision */
-  border: 1px solid #ddd;
+  border: none;
   border-radius: 20px;
   outline: none;
 }

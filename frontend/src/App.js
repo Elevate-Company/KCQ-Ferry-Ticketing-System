@@ -4,7 +4,7 @@ import Dashboard from './core/components';  // Assuming components.js is inside 
 import DashboardScreen from './core/dashboard/dashboard';  // Corrected path
 import IssueTicket from './core/issueticket/issue_ticket';
 import ManageTrips from './core/managetrip/manage_trips';
-import ManageTickets from './core/manage_tickets';
+import ManageTickets from './core/manageticket/manage_tickets';
 import Profile from './core/profile';
 import Reports from './core/reports';
 import Settings from './core/settings';

@@ -3,40 +3,42 @@ import '../../css/dashboard/tripcard.css';
 
 function Tripcard({ from, destination, boatImage, date = "12/25/2024", boatNumber = "PBO-1234" }) {
   return (
-    <div className="navbar-card">
-      {/* Profile avatar (boat image) */}
-      <div className="profile-avatar">
-        <img src={boatImage} alt="Boat" className="avatar" />
-      </div>
+    <div className="card empty-card-tripcard">
+      <div className="card-body1">
+        {/* Checkbox on the left */}
+        <input type="checkbox" className="card-checkbox-tripcard" />
 
-      {/* "From" Section */}
-      <div className="text-content">
-        <p>From</p>
-        <div className="h6-container">
-          <h6>{from}</h6>
+        {/* Boat logo */}
+        <img src={boatImage} alt="Boat Logo" className="boat-logo-tripcard" />
+
+        {/* From component with text on the left */}
+        <div className="from-component-tripcard">
+          <p className="from-text-tripcard">From</p>
+          <h4 className="from-destination-tripcard">Cebu</h4>
         </div>
-      </div>
 
-      {/* Horizontal Dashed Line Separator */}
-      <div className="separator"></div>
+        {/* Horizontal dashed line separator */}
+        <div className="separator-tripcard" />
 
-      {/* "To" Section */}
-      <div className="text-content">
-        <p>To</p>
-        <div className="h6-container">
-          <h6>{destination}</h6>
+        {/* To component with text on the left */}
+        <div className="to-component-tripcard">
+          <p className="to-text">To</p>
+          <h4 className="to-destination">Cebu</h4>
         </div>
-      </div>
 
-      {/* Date, Boat Number, and Pumboat Express Section */}
-      <div className="date-content">
-        <p>Date</p>
-        <div className="date-boat-container">
-          <h6>{date}</h6>
-          <div className="boat-info">
-            <p className="boat-number">{boatNumber}</p>
-            <p className="boat-name">Pumboat Express</p> {/* New text added here */}
-          </div>
+        {/* Departure date component with ID */}
+        <div className="departure-date-component-tripcard mt-3">
+          <h4 className="departure-date-tripcard">January 15, 2024</h4>
+          <h4 className="departure-id-tripcard">PBO-1234</h4>
+          <h4 className="departure-text-tripcard">Pumboat Express</h4>
+          <h4 className="departure-capacity-tripcard">150</h4>
+        </div>
+
+        {/* Vertical separator, trash icon, and View Details button */}
+        <div>
+          <button type="button" className="view-details-button-tripcard">
+            View Details
+          </button>
         </div>
       </div>
     </div>

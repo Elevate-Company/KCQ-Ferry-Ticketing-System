@@ -1,4 +1,4 @@
-.empty-card-tripcard {
+.empty-card-ticketcard {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
     border: none; /* Remove border */
     display: flex;
@@ -14,14 +14,14 @@
     height: auto; /* Allow height to adjust based on content */
 }
 
-.card-checkbox-tripcard {
+.card-checkbox-ticketcard {
     position: absolute; /* Positions the checkbox absolutely within the card */
     left: 15px; /* Place the checkbox at the very left edge of the card */
     top: 50%; /* Vertically center the checkbox */
     transform: translateY(-50%); /* Adjust the position to truly center it */
 }
 
-.boat-logo-tripcard {
+.boat-logo-ticketcard {
     position: absolute; /* Positioning boat logo next to checkbox */
     left: 45px; /* Space the boat logo a little from the checkbox */
     top: 50%; /* Vertically center the logo */
@@ -30,7 +30,7 @@
     height: auto; /* Keep the aspect ratio */
 }
 
-.card-body-tripcard {
+.card-body1-ticketcard {
     display: flex;
     align-items: center; /* Vertically center the content */
     justify-content: flex-start; /* Align items to the left */
@@ -38,69 +38,94 @@
     padding-left: 70px; /* Padding for spacing between logo and text */
 }
 
-.from-component-tripcard,
-.to-component-tripcard {
+.from-component-ticketcard,
+.to-component-ticketcard {
     display: flex;
     flex-direction: column; /* Stack From/To and their respective destinations vertically */
     align-items: flex-start; /* Align text to the left */
     margin-left: 20px; /* Adjust this value to control spacing between components */
 }
 
-.from-text-tripcard,
-.to-text-tripcard {
+.from-text-ticketcard,
+.to-text-ticketcard {
     font-size: 10px;
     color: #666; /* Light color for the label */
     margin-bottom: 2px; /* Reduced margin to bring text closer to the destination */
 }
 
-.from-destination-tripcard,
-.to-destination-tripcard {
+.from-destination-ticketcard,
+.to-destination-ticketcard {
     font-size: 18px;
     color: #091057; /* Adjust this color */
 }
 
 /* Styling for the separator */
-.separator-tripcard {
+.separator-ticketcard {
     width: 5%; /* Reduced width for the separator */
     border-top: 1px dashed grey;
     margin: 15px 15px;
 }
 
 /* Departure date, ID, text "Pumboat Express", and capacity */
-.departure-date-component-tripcard {
+.departure-date-component-ticketcard {
     display: flex;
     align-items: center; /* Align items horizontally */
     margin-left: 40px; /* Adjust spacing from other components */
 }
 
-.departure-date-tripcard,
-.departure-id-tripcard,
+.departure-date-ticketcard,
+.departure-id-ticketcard,
 .departure-text-ticketcard,
-.departure-capacity-tripcard {
+.departure-capacity-ticketcard {
     font-size: 14px;
     color: #091057; /* Same color for all */
     margin-right: 70px; /* Space between elements */
 }
 
-.departure-id-tripcard {
+.departure-id-ticketcard {
     font-size: 14px; /* Same size as departure date */
     font-weight: normal; /* No bold text */
 }
 
-.departure-text-tripcard {
+.departure-text-ticketcard {
     font-size: 14px; /* Same size as the ID */
     font-weight: normal; /* Regular font weight for the text */
 }
 
-.departure-capacity-tripcard {
+.departure-capacity-ticketcard {
     font-size: 14px;
     color: #091057;
     font-weight: normal; /* Regular font weight */
     margin-right: 30px; /* Space between text and capacity number */
 }
 
+/* Solid Vertical Line Separator */
+.vertical-separator-ticketcard {
+    height: 30px; /* Height of the separator */
+    border-left: 2px solid grey; /* Solid vertical line */
+    margin-left: 70px; /* Space between capacity and separator */
+    display: flex;
+    align-items: center; /* Center the button vertically */
+    justify-content: center;
+    margin-right: 10px; /* Space to the right */
+}
+
+.trash-button-ticketcard {
+    background: none; /* Remove background */
+    border: none; /* Remove border */
+    color: #091057; /* Icon color */
+    font-size: 14px; /* Icon size */
+    cursor: pointer; /* Pointer cursor on hover */
+    margin-left: 50px; /* Space between icon and vertical separator */
+    padding: 0; /* Remove padding */
+}
+
+.trash-button-ticketcard:hover {
+    color: #dc3545; /* Change color on hover for feedback */
+}
+
 /* View Details Button */
-.view-details-button-tripcard {
+.view-details-button-ticketcard {
     background-color: rgb(189, 189, 189); /* Light grey background */
     border: 1px solid grey; /* Grey border */
     border-radius: 25px; /* Rounded corners */
@@ -108,9 +133,9 @@
     padding: 5px 10px; /* Button padding */
     font-size: 12px; /* Font size */
     cursor: pointer; /* Pointer cursor on hover */
-    margin-left: 80px;
+    margin-left: 30px;
 }
 
-.view-details-button--tripcard:hover {
+.view-details-button-ticketcard:hover {
     background-color: #e2e3e5; /* Slightly darker grey on hover */
 }
