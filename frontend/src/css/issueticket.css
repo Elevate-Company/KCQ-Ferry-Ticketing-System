@@ -1,40 +1,46 @@
 /* Container for the IssueTicket page */
 .issue-ticket-container {
-  padding: 20px;
+  padding: 0px;
+  max-width: 1200px; /* Restrict the container width */
+  margin: 0 auto; /* Center the container */
+  text-align: center;
 }
 
 /* Container for the cards row, so the h1 is excluded from the flex layout */
 .cards-row {
   display: flex; /* Use flexbox to align the cards in a row */
+  flex-wrap: wrap; /* Allow cards to wrap when needed */
   justify-content: space-between; /* Space the cards evenly */
   gap: 20px; /* Space between the two cards */
+  margin: 0; /* Remove margin to allow the cards to occupy more space */
 }
 
 /* Common styles for both cards */
 .card-select-issue, .card-contact-issue {
-  width: 50%; /* Set both cards to take up 50% of the container's width */
-  height: 300px; /* Fixed height for both cards */
+  width: 48%; /* Ensure cards take 48% of the container's width (leaving some space) */
+  min-width: 300px; /* Prevent cards from getting too narrow */
   box-sizing: border-box; /* Include padding and borders in width calculation */
-  margin: 20px 0; /* Vertical margin between the cards */
+  margin: 0; /* Remove margin from cards */
   border-radius: 10px; /* Rounded corners */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for card effect */
   display: flex;
-  justify-content: flex-start; /* Align content to the left */
-  align-items: flex-start; /* Align content to the top */
+  flex-direction: column; /* Align content vertically */
+  justify-content: flex-start; /* Align content to the top */
+  align-items: flex-start; /* Align content to the left */
   background-color: #fff;
-  text-align: left; /* Align the text to the left inside the card */
   position: relative; /* Enable absolute positioning inside the card */
-  padding: 20px; /* Add padding to prevent text from touching the edges */
+  height: auto; /* Allow height to expand based on content */
+  padding: 20px; /* Add padding inside the cards */
 }
 
-/* Specific styles for the select card */
 .card-select {
   font-size: 1.5rem;
   color: #333;
-  position: absolute; /* Position the Select Trip text */
   top: 20px; /* Place it at the top */
   left: 20px; /* Place it on the left side */
+  margin-bottom: 20px; /* Add margin to move Select Trip text down */
 }
+
 
 /* Specific styles for the contact card */
 .card-contact {
@@ -68,4 +74,17 @@
 .arrow:hover {
   color: #091057; /* Change color on hover */
   transform: scale(1.2); /* Slightly enlarge the arrow on hover */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .cards-row {
+    flex-direction: column; /* Stack the cards vertically on smaller screens */
+    gap: 15px; /* Reduce gap between cards */
+  }
+
+  .card-select-issue, .card-contact-issue {
+    width: 100%; /* Ensure the cards take up the full width on small screens */
+    height: auto; /* Let the height adjust based on content */
+  }
 }
