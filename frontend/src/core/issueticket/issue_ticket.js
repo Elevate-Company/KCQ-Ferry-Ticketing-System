@@ -1,14 +1,14 @@
 import React from 'react';
-import '../../css/issueticket.css'; // Import the CSS file for styling
+import '../../css/issueticket.css'; // Import the general CSS file
+import '../../css/contactinfo.css'; // Import the CSS for Contact Info card
 import SelectTrip from './selectrip'; // Import the SelectTrip component
 
 function IssueTicket() {
   // Define an array with the number of SelectTrip components you want to render
-  const selectTripCount = [1, 2, 3, 4]; // This will render 3 SelectTrip components inside the select card
+  const selectTripCount = [1, 2, 3, 4, 5, 6, 7, 8];
 
   return (
-    <div className="issue-ticket-container">
-      <h1>Issue Ticket</h1>
+    <div className="issue-ticket-container mt-5">
 
       {/* Container for cards */}
       <div className="cards-row">
@@ -34,7 +34,34 @@ function IssueTicket() {
         {/* Contact Card */}
         <div className="card-contact-issue contact-card">
           <div className="card-contact">
-            Contact Info
+            <h3>Contact Info</h3>
+            {/* Form inputs */}
+            <form className="contact-form">
+              <label>
+                Passenger Name:
+                <input type="text" placeholder="Name" />
+              </label>
+              <label>
+                Phone Number:
+                <input type="tel" placeholder="Contact number" />
+              </label>
+              <label>
+                Passenger Email:
+                <input type="email" placeholder="Email" />
+              </label>
+              <label>
+                Number of Tickets:
+                <input type="number" placeholder="Number" />
+              </label>
+              {/* Horizontal line */}
+              <hr />
+              <p>Total: PHP 1,999</p>
+              <hr />
+              {/* Generate Ticket Button */}
+              <button type="button" onClick={() => alert('Ticket Generated!')}>
+                Generate Ticket
+              </button>
+            </form>
           </div>
         </div>
       </div>

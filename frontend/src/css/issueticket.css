@@ -16,7 +16,7 @@
 }
 
 /* Common styles for both cards */
-.card-select-issue, .card-contact-issue {
+.card-select-issue {
   width: 48%; /* Ensure cards take 48% of the container's width (leaving some space) */
   min-width: 300px; /* Prevent cards from getting too narrow */
   box-sizing: border-box; /* Include padding and borders in width calculation */
@@ -33,22 +33,41 @@
   padding: 20px; /* Add padding inside the cards */
 }
 
-.card-select {
-  font-size: 1.5rem;
-  color: #333;
-  top: 20px; /* Place it at the top */
-  left: 20px; /* Place it on the left side */
-  margin-bottom: 20px; /* Add margin to move Select Trip text down */
+.card-contact-issue {
+  width: 48%; /* Ensure it takes 48% of the container width */
+  min-width: 300px; /* Prevent it from getting too narrow */
+  box-sizing: border-box;
+  margin: 0; /* Remove margin */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for card effect */
+  background-color: #fff; /* Set a background color */
+  position: relative; /* Allow positioning inside */
+  height: 700px; /* Increased fixed height */
+  padding: 20px; /* Padding for content */
+  display: flex;
+  flex-direction: column; /* Align content vertically */
+  justify-content: flex-start; /* Align content to the top */
+  align-items: flex-start; /* Align items to the left */
+  overflow: hidden; /* Prevent content from overflowing */
 }
-
 
 /* Specific styles for the contact card */
 .card-contact {
   font-size: 1.5rem;
-  color: #333;
+  color: #091057;
   position: absolute; /* Position the Contact Info text */
   top: 20px; /* Place it at the top */
   left: 20px; /* Place it on the left side */
+  margin-bottom: 20px;
+}
+
+/* Select card text */
+.card-select {
+  font-size: 1.5rem; 
+  color: #333;
+  top: 20px; /* Place it at the top */
+  left: 20px; /* Place it on the left side */
+  margin-bottom: 20px; /* Add margin to move Select Trip text down */
 }
 
 /* Container for the arrow button */
@@ -86,5 +105,11 @@
   .card-select-issue, .card-contact-issue {
     width: 100%; /* Ensure the cards take up the full width on small screens */
     height: auto; /* Let the height adjust based on content */
+  }
+
+  /* Allow the contact card to expand only if content exceeds height */
+  .card-contact-issue {
+    height: auto; /* Allow for expansion if content requires it */
+    overflow: visible; /* Allow content to overflow when expanded */
   }
 }
