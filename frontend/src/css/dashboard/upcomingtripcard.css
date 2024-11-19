@@ -1,12 +1,10 @@
-/* Responsive card styling */
 .responsive-card {
-  width: 100%; /* Ensures the card takes full width of the column */
-  height: auto; /* Adjust height automatically */
-  max-width: 100%; /* Keeps within container bounds */
-  transition: all 0.3s ease; /* Smooth resizing transition */
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  transition: all 0.3s ease;
 }
 
-/* Card header styling */
 .card-body h5 {
   font-size: 1.5rem;
   font-weight: 600;
@@ -14,24 +12,23 @@
   text-align: center;
 }
 
-/* Responsive adjustments */
 @media (max-width: 600px) {
   .responsive-card {
-      padding: 1rem; /* Reduced padding on smaller screens */
+      padding: 1rem;
   }
   .card-body h5 {
-      font-size: 1.25rem; /* Adjust font size for smaller screens */
+      font-size: 1.25rem;
   }
 }
 
 @media (min-width: 768px) {
   .responsive-card {
-      padding: 1.5rem; /* Increase padding for medium screens */
+      padding: 1.5rem;
   }
 }
 
 @media (min-width: 992px) {
   .responsive-card {
-      padding: 2rem; /* Increase padding on larger screens */
+      padding: 2rem;
   }
 }

@@ -1,13 +1,13 @@
 import React from 'react';
-import '../../css/dashboard/dashboard.css';  // Corrected path to dashboard.css
-import DashCard from './dashcard'; // Corrected import path for DashCard
-import Navbar from '../navbar';  // Import the Navbar component
+import '../../css/dashboard/dashboard.css';
+import DashCard from './dashcard';
+import Navbar from '../navbar';
 
 function Dashboard() {
   return (
     <div>
-      <Navbar />  {/* Add Navbar here */}
-      <DashCard />  {/* Keep your DashCard here */}
+      <Navbar />
+      <DashCard />
     </div>
   );
 }

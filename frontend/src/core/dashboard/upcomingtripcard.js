@@ -1,10 +1,9 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';  // Import Bootstrap
-import '../../css/dashboard/upcomingtripcard.css';  // Import custom styles
-import Tripcard from './tripcard';  // Import Tripcard component
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../../css/dashboard/upcomingtripcard.css';
+import Tripcard from './tripcard';
 
 function UpcomingTripCard() {
-  // Example data for upcoming trips
   const trips = [
     { id: 1, from: 'Cebu', destination: 'North Korea', boatImage: 'boatlogo.png', dashImage: 'dash.png' },
     { id: 2, from: 'Davao', destination: 'Japan', boatImage: 'boatlogo.png', dashImage: 'dash.png' },
@@ -12,20 +11,19 @@ function UpcomingTripCard() {
   ];
 
   return (
-    <div className="container-fluid"> {/* Full-width for larger screens */}
-      <div className="row justify-content-center"> {/* Center card on larger screens */}
+    <div className="container-fluid">
+      <div className="row justify-content-center">
         <div className="col-12 col-md-10 col-lg-12">
           <div className="card shadow-lg border-0 mb-4 responsive-card">
             <div className="card-body">
               <h5 className="mb-4 text-center">Upcoming Trips</h5>
-              {/* Map over the trips array to render multiple Tripcards */}
               {trips.map((trip) => (
                 <Tripcard
                   key={trip.id}
                   from={trip.from}
                   destination={trip.destination}
-                  boatImage={require(`../../assets/${trip.boatImage}`)}  // Dynamic boat image path
-                  dashImage={require(`../../assets/${trip.dashImage}`)}  // Dynamic dash image path
+                  boatImage={require(`../../assets/${trip.boatImage}`)}
+                  dashImage={require(`../../assets/${trip.dashImage}`)}
                 />
               ))}
             </div>

@@ -1,116 +1,104 @@
-/* Container for the SelectTrip component */
 .select-trip-container {
-    margin-top: 10px; /* Adjust margin for spacing inside the card */
-    width: 100%; /* Ensure the container takes full width of the card */
+    margin-top: 10px;
+    width: 100%;
 }
 
-/* Styling for the empty card inside SelectTrip */
 .card-select-empty {
-    border: none; /* Remove any border */
-    border-radius: 8px; /* Rounded corners */
-    padding: 10px; /* Add padding inside the card */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a light shadow for a subtle card effect */
-    background-color: #fff; /* Ensure the card has a white background */
-    position: relative; /* Allows for positioning the checkbox */
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    position: relative;
 }
 
-/* Round checkbox styling */
 .round-checkbox {
-    position: absolute; /* Position it absolutely within the card */
-    top: 10px; /* Space from the top */
-    right: 10px; /* Space from the right edge */
-    width: 20px; /* Width of the checkbox */
-    height: 20px; /* Height of the checkbox */
-    border-radius: 50%; /* Make it round */
-    border: 2px solid #091057; /* Dark border for the checkbox */
-    background-color: white; /* White background */
-    cursor: pointer; /* Change the cursor to indicate interactivity */
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #091057;
+    background-color: white;
+    cursor: pointer;
 }
 
-/* Container for both Boat Logo and From/To content in a row */
 .boat-from-to-container {
-    display: flex; /* Use flexbox to align items horizontally */
-    align-items: center; /* Vertically align items in the center */
-    gap: 20px; /* Space between the boat logo and From/To content */
-    justify-content: flex-start; /* Align to the left */
-    width: 100%; /* Ensure the container takes up full width */
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: flex-start;
+    width: 100%;
 }
 
-/* Styling for the boat logo inside SelectTrip */
 .selectriplogo {
-    width: 25px; /* Adjust the size of the boat logo */
-    height: auto; /* Maintain aspect ratio */
+    width: 25px;
+    height: auto;
 }
 
-/* Styling for the From and To content */
 .from-to-component {
-    display: flex; /* Arrange From and To side by side */
-    flex-direction: row; /* Row direction to place the components horizontally */
-    align-items: center; /* Vertically align items */
-    gap: 20px; /* Add space between the two sections */
-    width: 100%; /* Ensure the container takes up full width */
-    justify-content: flex-start; /* Align to the left */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    justify-content: flex-start;
 }
 
-/* Common styling for the From and To sections */
 .from-section, .to-section {
-    text-align: left; /* Align text to the left */
+    text-align: left;
 }
 
 .from-section p, .to-section p {
-    font-size: 12px; /* Smaller font for the label */
-    color: #555; /* Grey color for the label */
-    margin: 0; /* Remove default margin */
+    font-size: 12px;
+    color: #555;
+    margin: 0;
 }
 
 .from-section h4, .to-section h4 {
-    font-size: 16px; /* Larger font for the location */
-    color: #091057; /* Darker color for emphasis */
-    margin-top: 5px; /* Space between label and value */
+    font-size: 16px;
+    color: #091057;
+    margin-top: 5px;
 }
 
-/* Dashed separator between the From and To sections */
 .dashed-separator {
-    width: 40%; /* Ensure the dashed line spans 40% of the width */
-    border-top: 2px dashed #091057; /* Horizontal dashed separator line */
-    margin: 10px 0; /* Space above and below the line */
+    width: 40%;
+    border-top: 2px dashed #091057;
+    margin: 10px 0;
 }
 
-/* Additional information below the From and To section (display horizontally) */
 .additional-info {
-    margin-top: 20px; /* Space between From/To and the additional info */
-    display: flex; /* Align items horizontally */
-    justify-content: space-between; /* Space out the components evenly */
-    gap: 15px; /* Space between each item */
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
 }
 
-/* Styling for each text component (Date, Boat Number, Boat Type, Price) */
 .additional-info div {
-    flex-basis: 23%; /* Allow each item to take up roughly 23% of the container width */
-    text-align: left; /* Align text to the left */
+    flex-basis: 23%;
+    text-align: left;
 }
 
-/* Styling for the values (h4 elements) */
 .date-section h4,
 .boat-number-section h4,
-.boat-type-section h4{
-    font-size: 14px; /* Larger font for the values */
-    color: #091057; /* Darker color for values */
-    margin-top: 5px; /* Space between label and value */
+.boat-type-section h4 {
+    font-size: 14px;
+    color: #091057;
+    margin-top: 5px;
     font-weight: normal;
     margin-left: 5px;
 }
 
-.price-section h4{
+.price-section h4 {
     font-size: 14px;
-    margin-left: 20px; /* Add margin-left for spacing */
+    margin-left: 20px;
     color: white;
 }
 
-/* Styling for the Price section */
 .price {
-    padding: 5px 10px; /* Add padding around the price */
-    background-color: #091057; /* Dark background for price */
-    border-radius: 5px; /* Rounded corners for price background */
-    display: inline-block; /* To keep the padding around the text */
+    padding: 5px 10px;
+    background-color: #091057;
+    border-radius: 5px;
+    display: inline-block;
 }

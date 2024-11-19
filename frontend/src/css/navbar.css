@@ -1,58 +1,51 @@
-/* Navbar card container */
 .navbar-card1 {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 15px;
   background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Card shadow */
-  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
   margin: 15px;
   width: 95%;
   margin-left: 1%;
   margin-right: 1%;
 }
 
-/* Search container styling */
 .search-container {
   position: relative;
   display: flex;
   align-items: center;
   flex-grow: 1;
-  max-width: 500px; /* Adjust width as needed */
+  max-width: 500px;
 }
 
-/* Search icon styling */
 .search-icon {
   color: black;
   font-size: 16px;
-  margin-right: 8px; /* Space between icon and input */
+  margin-right: 8px;
 }
 
-/* Search input styling */
 .search-input {
   width: 100%;
-  padding: 8px 10px; /* Adjust padding to prevent collision */
+  padding: 8px 10px;
   border: none;
   border-radius: 20px;
   outline: none;
 }
 
-/* Notification and profile container */
 .notification-profile {
   display: flex;
-  align-items: center; /* Align items vertically */
+  align-items: center;
 }
 
-/* Notification icon styling */
 .notification-icon {
-  margin-right: 15px; /* Space between notification icon and profile avatar */
-  font-size: 23px; /* Adjust size if necessary */
+  margin-right: 15px;
+  font-size: 23px;
 }
 
-/* Profile avatar styling */
 .profile-avatar {
-  margin-left: 5px; /* Space between avatar and notification icon */
+  margin-left: 5px;
 }
 
 .avatar {
@@ -60,5 +53,5 @@
   height: 40px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #ddd; /* Optional border around the avatar */
+  border: 2px solid #ddd;
 }

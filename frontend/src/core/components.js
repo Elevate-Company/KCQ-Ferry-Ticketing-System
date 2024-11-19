@@ -88,14 +88,12 @@ function Components() {
             </li>
           </ul>
 
-          {/* "Need Help" section */}
           <div className="d-flex align-items-center need-help">
             <img src={needHelpIcon} alt="Need Help" className="sidebar-icon" />
             {isSidebarExpanded && <span className="ms-2">Need Help?</span>}
           </div>
         </div>
 
-        {/* Main Content */}
         <div className={`main-content ${isSidebarExpanded ? 'expanded' : 'collapsed'} col p-4`}>
           <Outlet />
         </div>

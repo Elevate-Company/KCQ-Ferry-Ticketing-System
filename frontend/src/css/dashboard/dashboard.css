@@ -1,18 +1,13 @@
-/* Global styles for the dashboard layout */
-
-/* Main content styling */
 .main-content {
   padding: 20px;
 }
 
-/* Container for consistent grid structure */
 .container-fluid {
   margin: 0;
   padding: 0;
-  width: 100%; /* Ensures full width */
+  width: 100%;
 }
 
-/* Additional styles to remove spacing around elements */
 body, html {
   margin: 0;
   padding: 0;
@@ -32,11 +27,9 @@ body, html {
   align-items: stretch;
 }
 
-/* Styling adjustments for DashCard to ensure full width on desktop view */
 .dashcard-container {
   width: 100%;
-  max-width: 100%; /* Prevents any restriction in width */
+  max-width: 100%;
   padding: 0;
   margin: 0;
 }
-

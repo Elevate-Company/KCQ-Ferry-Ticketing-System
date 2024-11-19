@@ -1,23 +1,23 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Ensure Bootstrap is imported
-import ticketImage from '../../assets/ticket.png'; // Corrected import path
+import 'bootstrap/dist/css/bootstrap.min.css'; 
+import ticketImage from '../../assets/ticket.png'; 
 
 function TicketSold() {
-  const ticketsSold = 1200;  // Set the number of tickets sold
+  const ticketsSold = 1200; 
 
   return (
     <div className="card shadow-sm border-0 mb-4 col-12 col-md-6 col-lg-4 position-relative">
-      {/* Image displayed at the top left corner */}
+
       <img 
         src={ticketImage} 
         alt="Ticket" 
         style={{
           position: 'absolute', 
           top: '10px', 
-          left: '10px',  // Positioned to the top-left
-          width: '50px',  // Adjust size as needed
+          left: '10px', 
+          width: '50px',
           height: 'auto',
-          zIndex: 1  // Ensures the image stays on top
+          zIndex: 1
         }} 
       />
       <div className="card-body mt-5 fade-in-up">

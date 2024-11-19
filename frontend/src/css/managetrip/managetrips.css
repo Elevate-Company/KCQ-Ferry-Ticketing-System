@@ -1,40 +1,35 @@
-/* Style for the manage trips container */
 .manage-trips-container {
   padding: 20px;
 }
 
-/* Styling for the header container */
 .header-container {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Ensures space between the header and search/filter */
-  margin-bottom: 20px; /* Adds some space below the header */
+  justify-content: space-between;
+  margin-bottom: 20px;
 }
 
-/* Styling for the header text */
 .header {
-  font-size: 24px; /* Reduced size of the header */
+  font-size: 24px;
   color: #333;
-  margin-right: 20px; /* Space between header and the search/filter */
-  flex-grow: 1; /* Pushes the search/filter to the right */
+  margin-right: 20px;
+  flex-grow: 1;
 }
 
-/* Styling for the search input */
 .search-inputt {
   padding: 10px;
   font-size: 14px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  width: 180px; /* Reduced width for a more compact search input */
-  margin-right: 10px; /* Adjusted space between search and filter */
+  width: 180px;
+  margin-right: 10px;
 }
 
-/* Styling for the dropdown filter */
 .filter-dropdown {
   padding: 10px;
   font-size: 14px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  width: 150px; /* Reduced width for the filter dropdown */
+  width: 150px;
   cursor: pointer;
 }
