@@ -7,7 +7,7 @@ import ManageTrips from './core/managetrip/manage_trips';
 import ManageTickets from './core/manageticket/manage_tickets';
 import Profile from './core/profile';
 import Reports from './core/reports';
-import Settings from './core/settings';
+import Settings from './core/settings/settings';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {

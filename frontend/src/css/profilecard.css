@@ -1,0 +1,10 @@
+.profile-card-container {
+    width: 600px; /* Adjust the width as needed */
+    height: 400px; /* Adjust the height as needed */
+    background-color: #fff; /* Background color of the card */
+    border-radius: 10px; /* Add rounded corners */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+    padding: 20px; /* Add padding for inner content */
+    display: flex; /* For alignment if content is added */
+  }
+  
