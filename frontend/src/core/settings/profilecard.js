@@ -4,7 +4,7 @@ import avatar from '../../assets/avatar.png';
 
 function ProfileCard() {
   return (
-    <div className="profile-card-container ms-3 mt-4">
+    <div className="profile-card-container ms-1 mt-4">
       <div className="profile-card-content">
         <p>My Profile</p>
         <div className="profile-info-container">
