@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
 import '../../css/changepassword.css';
 
 function ChangePassword() {
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [repeatPasswordVisible, setRepeatPasswordVisible] = useState(false);
+  const navigate = useNavigate(); // Initialize useNavigate hook
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
@@ -11,6 +13,11 @@ function ChangePassword() {
 
   const toggleRepeatPasswordVisibility = () => {
     setRepeatPasswordVisible(!repeatPasswordVisible);
+  };
+
+  const handleLogout = () => {
+    // Navigate to the Login page after logging out
+    navigate('/login'); // This will route to Login page
   };
 
   return (
@@ -70,6 +77,11 @@ function ChangePassword() {
           </div>
           <button className="change-password-button mt-3">Change Password</button>
         </div>
+
+        {/* Logout button that triggers routing to login page */}
+        <button className="logout-button" onClick={handleLogout}>
+          Logout
+        </button>
       </div>
     </div>
   );
