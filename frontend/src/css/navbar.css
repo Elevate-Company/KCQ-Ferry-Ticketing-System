@@ -56,3 +56,10 @@
   object-fit: cover;
   border: 2px solid #ddd;
 }
+
+.menu-icon {
+  width: 24px;  /* Adjust width of the menu icon */
+  height: 24px;  /* Adjust height */
+  margin-right: 15px; /* Space between the menu icon and the notification bell */
+  cursor: pointer; /* Optional: cursor pointer for better UX */
+}
