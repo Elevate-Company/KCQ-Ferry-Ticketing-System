@@ -19,10 +19,10 @@ function App() {
     return (
         <Router>
             <Routes>
-                {/* Public Route */}
+                {/* Public Route - Login */}
                 <Route path="/login" element={<Login />} />
 
-                {/* Protected Routes */}
+                {/* Protected Routes - Only accessible if authenticated */}
                 <Route
                     path="/"
                     element={

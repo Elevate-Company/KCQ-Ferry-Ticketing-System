@@ -1,12 +1,13 @@
-// src/components/ProtectedRoute.js
 import React from 'react';
 import { Navigate } from 'react-router-dom';
 
-const ProtectedRoute = ({ children, isAuthenticated }) => {
-    if (!isAuthenticated()) {
+// ProtectedRoute checks if the user is authenticated
+const ProtectedRoute = ({ isAuthenticated, children }) => {
+    if (!isAuthenticated) {
         return <Navigate to="/login" replace />;
     }
-    return children;
+
+    return children; // If authenticated, show the child component (Dashboard, etc.)
 };
 
 export default ProtectedRoute;
