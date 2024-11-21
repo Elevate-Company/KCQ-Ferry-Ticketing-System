@@ -13,7 +13,7 @@ import ProtectedRoute from './components/protectedroute'; // Ensure correct path
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Authentication checker
-const isAuthenticated = () => !!localStorage.getItem('accessToken');
+const isAuthenticated = () => !!localStorage.getItem('accessToken'); // Check for token in localStorage
 
 function App() {
     return (
@@ -22,15 +22,20 @@ function App() {
                 {/* Public Route - Login */}
                 <Route path="/login" element={<Login />} />
 
-                {/* Protected Routes - Only accessible if authenticated */}
+                {/* Redirect unauthenticated users to /login */}
                 <Route
                     path="/"
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated}>
-                            <Dashboard />
-                        </ProtectedRoute>
+                        isAuthenticated() ? (
+                            <ProtectedRoute isAuthenticated={isAuthenticated}>
+                                <Dashboard />
+                            </ProtectedRoute>
+                        ) : (
+                            <Navigate to="/login" replace /> // Redirect to login if not authenticated
+                        )
                     }
                 >
+                    {/* Nested Routes for the dashboard */}
                     <Route index element={<Navigate to="dashboard" replace />} />
                     <Route path="dashboard" element={<DashboardScreen />} />
                     <Route path="issue-ticket" element={<IssueTicket />} />
