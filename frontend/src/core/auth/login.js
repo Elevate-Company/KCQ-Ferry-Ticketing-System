@@ -33,6 +33,8 @@ function Login() {
     };
 
     return (
+        <div className='h-100 d-flex justify-content-center align-items-center'>
+
         <div className="login-container">
             <img src={logo} alt="Logo" className="logo" />
             <h2>Login</h2>
@@ -56,6 +58,7 @@ function Login() {
             <p>
                 <a href="/forgot-password">Forgot Password?</a>
             </p>
+        </div>
         </div>
     );
 }

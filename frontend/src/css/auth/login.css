@@ -1,11 +1,7 @@
-body, html {
-  height: 100%;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f0f2f5;
+.body{
+background-color: #003161;
 }
+
 
 .login-container {
   max-width: 400px;
