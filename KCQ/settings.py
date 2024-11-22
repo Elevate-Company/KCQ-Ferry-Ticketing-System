@@ -11,7 +11,9 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 import os
 from pathlib import Path
+from dotenv import load_dotenv
 
+load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -19,12 +21,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-0&8*j@p8&%(2#jtfyp)!a!!3g3wmb4ca!6kbc3!uj)&2%mqctr'
+SECRET_KEY = os.environ.get("SECRET_KEY", "1231231qweqwe")
+DEBUG = os.getenv("DEBUG", "False").lower() in ("true", "1", "t")
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+ALLOWED_HOSTS = os.environ.get(
+    "DJANGO_ALLOWED_HOSTS", "localhost,127.0.0.1"
+).split(  # noqa: E501
+    ","
+)  # noqa: E501
 
-ALLOWED_HOSTS = []
 
 # Application definition
 INSTALLED_APPS = [
@@ -54,8 +59,6 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'KCQ.urls'
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -73,8 +76,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'KCQ.wsgi.application'
-
-BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Database configuration
 DATABASES = {
@@ -101,7 +102,15 @@ USE_I18N = True
 USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
-STATIC_URL = '/static/'
+
+STATIC_URL = "static/"
+if DEBUG:
+    STATIC_ROOT = ""
+    STATICFILES_DIRS = [os.path.join(BASE_DIR, "staticfiles")]
+else:
+    STATIC_ROOT = os.path.join("/var/www/kcq/", "staticfiles")
+
+    STATICFILES_DIRS = ["/var/www/kcq/"]
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
@@ -109,10 +118,17 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # CORS settings
 CORS_ALLOW_ALL_ORIGINS = True 
 
-# Production Static File Settings
-if not DEBUG:
-    STATIC_ROOT = BASE_DIR / 'static'  
-
+SECURE_CROSS_ORIGIN_OPENER_POLICY = None
 
 AUTH_USER_MODEL='authentication.Account'
 
+CSRF_TRUSTED_ORIGINS = [
+    'http://3.106.206.245',  # Add your IP address here
+    'https://3.106.206.245',  # Add the HTTPS version if you're using HTTPS
+    # Or you can add your domain name here, e.g.:
+    # 'http://yourdomain.com',
+    # 'https://yourdomain.com',
+]
+
+print("STATIC_ROOT:", STATIC_ROOT)
+print("STATICFILES_DIRS:", STATICFILES_DIRS)
