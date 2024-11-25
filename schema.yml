@@ -1,0 +1,63 @@
+openapi: 3.0.3
+info:
+  title: KCQ Express Ticketing Management System
+  version: 1.0.0
+  description: The KCQ Express Ticketing Management System is an advanced web-based
+    application designed to streamline and manage the ticketing operations for ferry
+    services. This system is tailored to meet the needs of both administrative and
+    operational staff, ensuring efficient handling of ticket sales, passenger information,
+    and overall ferry service management. Key features include an admin dashboard
+    for comprehensive management, an employee dashboard for easy ticket creation and
+    passenger information access, integrated ticket printing, robust data management,
+    and secure, role-based access control.
+paths:
+  /api/token/:
+    post:
+      operationId: api_token_create
+      tags:
+      - api
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AuthToken'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/AuthToken'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthToken'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthToken'
+          description: ''
+components:
+  schemas:
+    AuthToken:
+      type: object
+      properties:
+        username:
+          type: string
+          writeOnly: true
+        password:
+          type: string
+          writeOnly: true
+        token:
+          type: string
+          readOnly: true
+      required:
+      - password
+      - token
+      - username
+  securitySchemes:
+    tokenAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Token-based authentication with required prefix "Token"

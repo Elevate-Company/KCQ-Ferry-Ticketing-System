@@ -33,6 +33,7 @@ ALLOWED_HOSTS = os.environ.get(
 
 # Application definition
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,10 +42,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # internal apps
     'authentication',
+    'api',
 
     # 3rd party apps
     'rest_framework',
-    'rest_framework.authtoken'
+    'rest_framework.authtoken',
+    'drf_spectacular',
 ]
 
 MIDDLEWARE = [
@@ -78,12 +81,32 @@ TEMPLATES = [
 WSGI_APPLICATION = 'KCQ.wsgi.application'
 
 # Database configuration
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',  # Use Path object for joining paths
+DB_NAME = os.getenv('DB_NAME')
+DB_USER = os.getenv('DB_USER')
+DB_PASSWORD = os.getenv('DB_PASSWORD')
+DB_HOST = os.getenv('DB_HOST')
+DB_PORT = os.getenv('DB_PORT')
+
+
+if all([DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT]):
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': DB_NAME,
+            'USER': DB_USER,
+            'PASSWORD': DB_PASSWORD,
+            'HOST': DB_HOST,
+            'PORT': DB_PORT,
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
@@ -102,15 +125,17 @@ USE_I18N = True
 USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
-
 STATIC_URL = "static/"
 if DEBUG:
-    STATIC_ROOT = ""
+    STATIC_ROOT = "static/"
     STATICFILES_DIRS = [os.path.join(BASE_DIR, "staticfiles")]
 else:
     STATIC_ROOT = os.path.join("/var/www/kcq/", "staticfiles")
-
     STATICFILES_DIRS = ["/var/www/kcq/"]
+
+# media
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
@@ -123,12 +148,28 @@ SECURE_CROSS_ORIGIN_OPENER_POLICY = None
 AUTH_USER_MODEL='authentication.Account'
 
 CSRF_TRUSTED_ORIGINS = [
-    'http://3.106.206.245',  # Add your IP address here
-    'https://3.106.206.245',  # Add the HTTPS version if you're using HTTPS
-    # Or you can add your domain name here, e.g.:
-    # 'http://yourdomain.com',
-    # 'https://yourdomain.com',
+    'http://3.106.206.245',
+    'https://3.106.206.245', 
 ]
 
-print("STATIC_ROOT:", STATIC_ROOT)
-print("STATICFILES_DIRS:", STATICFILES_DIRS)
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'KCQ Express Ticketing Management System',
+    'DESCRIPTION': 'The KCQ Express Ticketing Management System is an advanced web-based application designed to streamline and manage the ticketing operations for ferry services. This system is tailored to meet the needs of both administrative and operational staff, ensuring efficient handling of ticket sales, passenger information, and overall ferry service management. Key features include an admin dashboard for comprehensive management, an employee dashboard for easy ticket creation and passenger information access, integrated ticket printing, robust data management, and secure, role-based access control.',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    # OTHER SETTINGS
+}
+
+# admin jazzmin
+JAZZMIN_SETTINGS = {
+    "site_title": "KCQ Express Admin",
+    "site_header": "KCQ Express",
+    "site_brand": "KCQ Express",
+    "login_logo": None,
+    "login_logo_dark": None,
+    "site_logo_classes": "img-circle",
+    "site_icon": None,
+    "welcome_sign": "Welcome to KCQ Express Ticketing Management System",
+    # "site_logo": "images/kcq-logo.png",
+}
