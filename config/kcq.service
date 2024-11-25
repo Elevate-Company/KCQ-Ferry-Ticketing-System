@@ -1,0 +1,12 @@
+[Unit]
+Description=KCQ site
+Requires=postgresql.service
+
+[Service]
+Type=simple
+WorkingDirectory=/home/ubuntu/KCQ-Ferry-Ticketing-System
+ExecStart=/home/ubuntu/KCQ-Ferry-Ticketing-System/venv/bin/gunicorn -b 0.0.0.0:8080 KCQ.wsgi:application
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
