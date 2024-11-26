@@ -4,11 +4,14 @@ from django.conf import settings
 from django.conf.urls.static import static
 from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
 
-from authentication.views import ObtainAuthToken
+from api import urls as api_urls
+from authentication import urls as auth_urls
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),  # Admin URL
-    path('api/token/', ObtainAuthToken.as_view(), name='api_get_token'),
+    path('api/', include(api_urls)),
+    path('api/auth/', include(auth_urls)),
 
     # swagger
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),

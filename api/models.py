@@ -3,7 +3,7 @@ from decimal import Decimal
 from django.core.files.base import ContentFile
 from io import BytesIO
 from decimal import Decimal
-from PIL import Image
+from autoslug import AutoSlugField
 
 from authentication.models import Account
 
@@ -11,10 +11,11 @@ import qrcode
 
 
 class FerryBoat(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, unique=True)
     capacity = models.PositiveIntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    slug = AutoSlugField(populate_from='name')
 
     def __str__(self):
         return self.name
@@ -56,7 +57,7 @@ class Ticket(models.Model):
     ticket_number = models.CharField(max_length=50, unique=True)
     seat_number = models.CharField(max_length=10, blank=True, null=True)
     age_group = models.CharField(max_length=7, choices=AGE_GROUP_CHOICES)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
+    price = models.DecimalField(max_digits=10, decimal_places=2, default=400.00)
     discount = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
     issue_date = models.DateTimeField(auto_now_add=True)
     created_at = models.DateTimeField(auto_now_add=True)

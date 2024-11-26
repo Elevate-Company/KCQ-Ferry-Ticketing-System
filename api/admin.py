@@ -5,7 +5,7 @@ from django.utils.html import format_html
 # Register FerryBoat model
 @admin.register(FerryBoat)
 class FerryBoatAdmin(admin.ModelAdmin):
-    list_display = ('name', 'capacity', 'created_at', 'updated_at')
+    list_display = ('name', 'capacity', 'slug', 'created_at', 'updated_at')
     search_fields = ('name',)
     list_filter = ('created_at', 'updated_at')
 
@@ -26,10 +26,11 @@ class PassengerAdmin(admin.ModelAdmin):
 @admin.register(Ticket)
 class TicketAdmin(admin.ModelAdmin):
     list_display = (
-        'ticket_number', 'passenger', 'trip', 'seat_number', 'age_group', 'price', 'discount', 'issue_date', 'created_by', 'baggage_ticket', 'qr_code_image'
+        'ticket_number', 'passenger', 'trip', 'seat_number', 'age_group', 'price', 'issue_date', 'created_by', 'baggage_ticket', 'qr_code_image'
     )
     search_fields = ('ticket_number', 'passenger__name', 'trip__origin', 'trip__destination')
     list_filter = ('age_group', 'issue_date', 'created_at', 'trip')
+    readonly_fields = ['discount']
     
     # Display QR Code in admin panel
     def qr_code_image(self, obj):
