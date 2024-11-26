@@ -10,7 +10,7 @@ class AccountAdmin(UserAdmin):
     ordering = ('username',)
     
     fieldsets = (
-        (None, {'fields': ('username', 'password')}),
+        (None, {'fields': ('username', 'password', 'employee_number')}),
         ('Personal info', {'fields': ('first_name', 'last_name', 'email', 'mobile_number')}),
         ('Permissions', {'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions')}),
         ('Role', {'fields': ('role',)}),
