@@ -4,14 +4,14 @@ from .trip import TripSerializer
 
 from rest_framework import serializers
 
-class PassengerSerializer(serializers.ModelSerializer):
+class TicketPassengerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Passenger
         fields = '__all__'
 
 class TicketSerializer(serializers.ModelSerializer):
     trip = TripSerializer()
-    passenger = PassengerSerializer()
+    passenger = TicketPassengerSerializer()
     created_by = serializers.StringRelatedField()
     
     class Meta:

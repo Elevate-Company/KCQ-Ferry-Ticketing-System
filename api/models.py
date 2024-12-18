@@ -35,10 +35,27 @@ class Trip(models.Model):
         return f"{self.origin} to {self.destination} ({self.departure_time} - {self.arrival_time})"
 
 class Passenger(models.Model):
+    BOARDING_STATUS_CHOICES = [
+        ('NOT_CHECKED_IN', 'Not Checked-in'),
+        ('CHECKED_IN', 'Checked-in'),
+        ('BOARDED', 'Boarded'),
+        ('MISSED', 'Missed'),
+        ('OFFBOARDED', 'Offboarded'),
+    ]
+
     name = models.CharField(max_length=100)
-    contact = models.CharField(max_length=15, null=True, blank=True)
+    email = models.CharField(max_length=255, null=True, blank=True)
+    contact = models.CharField(max_length=100, null=True, blank=True)
+    phone = models.CharField(max_length=100, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
+    total_bookings = models.PositiveIntegerField(default=0)
     updated_at = models.DateTimeField(auto_now=True)
+    is_delete = models.BooleanField(default=False)
+    boarding_status = models.CharField(
+        max_length=15,  # Length of the longest choice key
+        choices=BOARDING_STATUS_CHOICES,
+        default='NOT_CHECKED_IN'
+    )
 
     def __str__(self):
         return self.name
