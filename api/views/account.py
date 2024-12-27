@@ -12,7 +12,7 @@ from api.persmissons import IsAdmin
 
 @extend_schema(tags=["Account"])
 class AccountViewSet(ViewSet):
-    permission_classes = [IsAuthenticated, IsAdmin]
+    permission_classes = [IsAuthenticated]
     serializer_class = AccountSerializer
 
     @extend_schema(
