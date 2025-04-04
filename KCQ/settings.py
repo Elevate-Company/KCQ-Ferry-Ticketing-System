@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
+    
     # internal apps
     'authentication',
     'api',
@@ -147,7 +149,7 @@ CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
     'http://127.0.0.1:3000',
-    # 'https://kcq-express.co',
+    'https://kcq-express.co',
 )
 
 SECURE_CROSS_ORIGIN_OPENER_POLICY = None
@@ -156,7 +158,9 @@ AUTH_USER_MODEL='authentication.Account'
 
 CSRF_TRUSTED_ORIGINS = [
     'http://3.106.206.245',
-    'https://3.106.206.245', 
+    'https://3.106.206.245',
+    'http://localhost:3000',
+    'http://127.0.0.1:3000',
 ]
 
 

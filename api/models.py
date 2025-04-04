@@ -2,7 +2,7 @@ from django.db import models
 from decimal import Decimal
 from django.core.files.base import ContentFile
 from io import BytesIO
-from decimal import Decimal
+# from decimal import Decimal
 from autoslug import AutoSlugField
 
 from authentication.models import Account
@@ -45,7 +45,6 @@ class Passenger(models.Model):
 
     name = models.CharField(max_length=100)
     email = models.CharField(max_length=255, null=True, blank=True)
-    contact = models.CharField(max_length=100, null=True, blank=True)
     phone = models.CharField(max_length=100, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     total_bookings = models.PositiveIntegerField(default=0)

@@ -19,8 +19,8 @@ class TripAdmin(admin.ModelAdmin):
 # Register Passenger model
 @admin.register(Passenger)
 class PassengerAdmin(admin.ModelAdmin):
-    list_display = ('name', 'contact', 'created_at', 'updated_at')
-    search_fields = ('name', 'contact')
+    list_display = ('name', 'email', 'phone', 'created_at', 'updated_at')
+    search_fields = ('name', 'email', 'phone')
 
 # Register Ticket model
 @admin.register(Ticket)
