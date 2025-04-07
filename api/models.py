@@ -1,6 +1,6 @@
 from django.db import models
 from decimal import Decimal
-from django.core.files.base import ContentFile
+# from django.core.files.base import ContentFile
 from io import BytesIO
 # from decimal import Decimal
 from autoslug import AutoSlugField
@@ -80,7 +80,7 @@ class Ticket(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     created_by = models.ForeignKey(Account, on_delete=models.CASCADE)
     baggage_ticket = models.BooleanField(default=False)
-    qr_code = models.ImageField(upload_to='tickets/qr_codes/', blank=True, null=True)  # Store QR code image
+    # qr_code = models.ImageField(upload_to='tickets/qr_codes/', blank=True, null=True)  # Store QR code image
 
     def __str__(self):
         return f"Ticket {self.ticket_number} for {self.passenger.name}"
@@ -113,7 +113,7 @@ class Ticket(models.Model):
         img.save(buffer, format='PNG')
         buffer.seek(0)
 
-        self.qr_code.save(f"{self.ticket_number}_qr.png", ContentFile(buffer.read()), save=False)
+        # self.qr_code.save(f"{self.ticket_number}_qr.png", ContentFile(buffer.read()), save=False)
 
     def save(self, *args, **kwargs):
         self.calculate_discount()
