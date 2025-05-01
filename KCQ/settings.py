@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get("SECRET_KEY", "1231231qweqwe")
-DEBUG = os.getenv("DEBUG", "False").lower() in ("true", "1", "t")
+DEBUG = True  # Set DEBUG to True for development
 
 ALLOWED_HOSTS = os.environ.get(
     "DJANGO_ALLOWED_HOSTS", "localhost,127.0.0.1"
@@ -128,13 +128,14 @@ USE_I18N = True
 USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
-STATIC_URL = "static/"
-if DEBUG:
-    STATIC_ROOT = "static/"
-    STATICFILES_DIRS = [os.path.join(BASE_DIR, "staticfiles")]
-else:
-    STATIC_ROOT = os.path.join("/var/www/kcq/", "staticfiles")
-    STATICFILES_DIRS = ["/var/www/kcq/"]
+STATIC_URL = "/static/"
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+
+# Always use paths within the project directory
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
 
 # media
 MEDIA_URL = '/media/'
