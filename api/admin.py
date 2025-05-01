@@ -26,13 +26,17 @@ class PassengerAdmin(admin.ModelAdmin):
 @admin.register(Ticket)
 class TicketAdmin(admin.ModelAdmin):
     list_display = (
-        'ticket_number', 'passenger', 'trip', 'seat_number', 'age_group', 'price', 'issue_date', 'created_by', 'baggage_ticket', 'qr_code_image'
+        'ticket_number', 'passenger', 'trip', 'seat_number', 'age_group', 
+        'price', 'issue_date', 'created_by', 'baggage_ticket'
+        # Removing qr_code_image from display
     )
     search_fields = ('ticket_number', 'passenger__name', 'trip__origin', 'trip__destination')
     list_filter = ('age_group', 'issue_date', 'created_at', 'trip')
-    readonly_fields = ['discount']
+    readonly_fields = ['discount']  # Removed qr_code_image from readonly_fields
     
-    # Display QR Code in admin panel
-    def qr_code_image(self, obj):
-        return format_html('<img src="{}" style="width: 100px; height: auto;" />'.format(obj.qr_code.url) if obj.qr_code else '')
-    qr_code_image.short_description = 'QR Code'
+    # Commenting out QR code image method
+    # def qr_code_image(self, obj):
+    #     if obj.get_qr_code_url():
+    #         return format_html('<img src="{}" style="width: 100px; height: auto;" />', obj.get_qr_code_url())
+    #     return '-'
+    # qr_code_image.short_description = 'QR Code'

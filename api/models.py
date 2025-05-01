@@ -1,8 +1,7 @@
 from django.db import models
 from decimal import Decimal
-# from django.core.files.base import ContentFile
+from django.core.files.base import ContentFile
 from io import BytesIO
-# from decimal import Decimal
 from autoslug import AutoSlugField
 
 from authentication.models import Account
@@ -80,7 +79,8 @@ class Ticket(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     created_by = models.ForeignKey(Account, on_delete=models.CASCADE)
     baggage_ticket = models.BooleanField(default=False)
-    # qr_code = models.ImageField(upload_to='tickets/qr_codes/', blank=True, null=True)  # Store QR code image
+    # Commenting out QR code field for now
+    # qr_code = models.ImageField(upload_to='tickets/qr_codes/', blank=True, null=True)
 
     def __str__(self):
         return f"Ticket {self.ticket_number} for {self.passenger.name}"
@@ -97,29 +97,35 @@ class Ticket(models.Model):
         else:
             self.discount = Decimal('0.00')
 
-    def generate_qr_code(self):
-        qr = qrcode.QRCode(
-            version=1,
-            error_correction=qrcode.constants.ERROR_CORRECT_L,
-            box_size=10,
-            border=4,
-        )
-        qr.add_data(self.ticket_number)
-        qr.make(fit=True)
+    # Commenting out QR code generation methods
+    # def generate_qr_code(self):
+    #     if not self.ticket_number:
+    #         return
+            
+    #     qr = qrcode.QRCode(
+    #         version=1,
+    #         error_correction=qrcode.constants.ERROR_CORRECT_L,
+    #         box_size=10,
+    #         border=4,
+    #     )
+    #     qr.add_data(self.ticket_number)
+    #     qr.make(fit=True)
 
-        img = qr.make_image(fill='black', back_color='white')
+    #     img = qr.make_image(fill='black', back_color='white')
+    #     buffer = BytesIO()
+    #     img.save(buffer, format='PNG')
+    #     buffer.seek(0)
 
-        buffer = BytesIO()
-        img.save(buffer, format='PNG')
-        buffer.seek(0)
+    #     self.qr_code.save(f"{self.ticket_number}_qr.png", ContentFile(buffer.read()), save=False)
 
-        # self.qr_code.save(f"{self.ticket_number}_qr.png", ContentFile(buffer.read()), save=False)
+    # def get_qr_code_url(self):
+    #     if self.qr_code:
+    #         return self.qr_code.url
+    #     return None
 
     def save(self, *args, **kwargs):
         self.calculate_discount()
-        if not self.qr_code:
-            self.generate_qr_code()
-        super().save(*args, **kwargs)
+        super().save(*args, **kwargs)  # Save without QR code generation
 
     class Meta:
         unique_together = ('trip', 'seat_number')
