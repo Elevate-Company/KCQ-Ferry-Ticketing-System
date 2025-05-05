@@ -5,7 +5,7 @@ from drf_spectacular.utils import extend_schema
 from django.core.exceptions import ValidationError as DjangoValidationError
 from rest_framework.exceptions import ValidationError
 
-from api.models import Ticket, Trip, Passenger
+from api.models import Ticket, Trip, Passenger, Log
 from api.serializers import TicketSerializer
 
 @extend_schema(tags=["Ticket"])
@@ -64,6 +64,16 @@ class TicketViewSet(viewsets.ModelViewSet):
             # Add the authenticated user as creator
             ticket = serializer.save(created_by=request.user)
             
+            # Log the ticket creation
+            Log.objects.create(
+                user=request.user,
+                action='CREATE',
+                model_name='Ticket',
+                object_id=str(ticket.id),
+                details=f"Ticket {ticket.ticket_number} created for {passenger.name}, trip {trip.origin} to {trip.destination}",
+                ip_address=self.get_client_ip(request)
+            )
+            
             # Return the created ticket data
             return Response(
                 serializer.data,
@@ -85,3 +95,11 @@ class TicketViewSet(viewsets.ModelViewSet):
                 {'error': f'An unexpected error occurred: {str(e)}'}, 
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
+            
+    def get_client_ip(self, request):
+        x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+        if x_forwarded_for:
+            ip = x_forwarded_for.split(',')[0]
+        else:
+            ip = request.META.get('REMOTE_ADDR')
+        return ip

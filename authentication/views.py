@@ -1,4 +1,3 @@
-
 from rest_framework import generics, permissions
 from rest_framework.authtoken.views import ObtainAuthToken
 from drf_spectacular.utils import extend_schema
@@ -17,11 +16,12 @@ from rest_framework import serializers
 
 from .serializers import EmployeeLoginSerializer, AdminLoginSerializer
 from .models import Account
+from api.models import Log
 
 @extend_schema(tags=["Authentication"])
 class EmployeeLoginView(APIView):
     serializer_class = EmployeeLoginSerializer
-    permission_classes = [permissions.AllowAny] 
+    permission_classes = [permissions.AllowAny]
 
     def post(self, request):
         employee_number = request.data.get('employee_number')
@@ -38,18 +38,37 @@ class EmployeeLoginView(APIView):
         user = authenticate(username=employee.username, password=password)
         if user is not None and employee is not None:
             token, created = Token.objects.get_or_create(user=user)
+            
+            # Log the login activity
+            Log.objects.create(
+                user=user,
+                action='LOGIN',
+                model_name='Account',
+                object_id=str(user.id),
+                details=f"Employee {user.username} logged in",
+                ip_address=self.get_client_ip(request)
+            )
+            
             return Response({
                 'message': 'Login successful',
                 'token': token.key,
                 'first_name': user.first_name,
                 'last_name': user.last_name,
                 'username': user.username,
-                'employee_number': employee.employee_number ,
+                'employee_number': employee.employee_number,
             }, status=status.HTTP_200_OK)
         else:
             return Response({
                 'error': 'Invalid password.'
             }, status=status.HTTP_401_UNAUTHORIZED)
+    
+    def get_client_ip(self, request):
+        x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+        if x_forwarded_for:
+            ip = x_forwarded_for.split(',')[0]
+        else:
+            ip = request.META.get('REMOTE_ADDR')
+        return ip
 
 @extend_schema(tags=["Authentication"])
 class AdminLoginView(APIView):
@@ -75,6 +94,16 @@ class AdminLoginView(APIView):
 
         if user:
             token, created = Token.objects.get_or_create(user=user)
+            
+            # Log the login activity
+            Log.objects.create(
+                user=user,
+                action='LOGIN',
+                model_name='Account',
+                object_id=str(user.id),
+                details=f"Admin {user.username} logged in",
+                ip_address=self.get_client_ip(request)
+            )
 
             return Response({
                 'message': 'Login successful',
@@ -84,9 +113,16 @@ class AdminLoginView(APIView):
             return Response({
                 'error': 'Invalid credentials'
             }, status=status.HTTP_401_UNAUTHORIZED)
+    
+    def get_client_ip(self, request):
+        x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+        if x_forwarded_for:
+            ip = x_forwarded_for.split(',')[0]
+        else:
+            ip = request.META.get('REMOTE_ADDR')
+        return ip
 
-        
-# Create your tests here.
+# Original ObtainAuthToken view - for backwards compatibility
 @extend_schema(tags=["Authentication"])
 class ObtainAuthTokenView(ObtainAuthToken):
-    permission_classes = [permissions.AllowAny] 
+    pass 

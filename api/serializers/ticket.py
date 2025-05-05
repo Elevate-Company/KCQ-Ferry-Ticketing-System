@@ -19,9 +19,23 @@ class TicketSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ticket
         fields = ['id', 'trip', 'trip_id', 'passenger', 'passenger_id', 'ticket_number', 'seat_number', 
-                 'age_group', 'price', 'discount', 'baggage_ticket', 
-                 'created_by', 'issue_date', 'created_at', 'updated_at']
+                 'age_group', 'price', 'discount', 'baggage_ticket', 'payment_method',
+                 'payment_reference', 'cash_amount', 'created_by', 'issue_date', 'created_at', 'updated_at']
         read_only_fields = ['id', 'created_by', 'issue_date', 'created_at', 'updated_at']
+
+    def validate(self, data):
+        payment_method = data.get('payment_method')
+        payment_reference = data.get('payment_reference')
+        cash_amount = data.get('cash_amount')
+        
+        # Validate payment information
+        if payment_method in ['GCASH', 'MAYA'] and not payment_reference:
+            raise ValidationError("Reference number is required for online payments")
+        
+        if payment_method == 'CASH' and not cash_amount:
+            raise ValidationError("Cash amount is required for cash payments")
+            
+        return data
 
     def create(self, validated_data):
         try:

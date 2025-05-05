@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import FerryBoat, Trip, Passenger, Ticket
+from .models import FerryBoat, Trip, Passenger, Ticket, Log
 from django.utils.html import format_html
 
 # Register FerryBoat model
@@ -40,3 +40,17 @@ class TicketAdmin(admin.ModelAdmin):
     #         return format_html('<img src="{}" style="width: 100px; height: auto;" />', obj.get_qr_code_url())
     #     return '-'
     # qr_code_image.short_description = 'QR Code'
+
+# Register Log model
+@admin.register(Log)
+class LogAdmin(admin.ModelAdmin):
+    list_display = ('user', 'action', 'model_name', 'object_id', 'timestamp', 'ip_address')
+    list_filter = ('action', 'model_name', 'user', 'timestamp')
+    search_fields = ('user__username', 'action', 'model_name', 'object_id', 'details')
+    readonly_fields = ('user', 'action', 'model_name', 'object_id', 'details', 'ip_address', 'timestamp')
+    
+    def has_add_permission(self, request):
+        return False
+        
+    def has_change_permission(self, request, obj=None):
+        return False

@@ -66,6 +66,12 @@ class Ticket(models.Model):
         ('senior', 'Senior'),
         ('infant', 'Infant'),
     ]
+    
+    PAYMENT_METHOD_CHOICES = [
+        ('CASH', 'Cash'),
+        ('GCASH', 'GCash'),
+        ('MAYA', 'Maya'),
+    ]
 
     trip = models.ForeignKey(Trip, on_delete=models.CASCADE)
     passenger = models.ForeignKey(Passenger, on_delete=models.CASCADE)
@@ -74,6 +80,9 @@ class Ticket(models.Model):
     age_group = models.CharField(max_length=7, choices=AGE_GROUP_CHOICES)
     price = models.DecimalField(max_digits=10, decimal_places=2, default=400.00)
     discount = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+    payment_method = models.CharField(max_length=5, choices=PAYMENT_METHOD_CHOICES, default='CASH')
+    payment_reference = models.CharField(max_length=50, blank=True, null=True, help_text="Reference number for online payments")
+    cash_amount = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
     issue_date = models.DateTimeField(auto_now_add=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -129,3 +138,29 @@ class Ticket(models.Model):
 
     class Meta:
         unique_together = ('trip', 'seat_number')
+
+class Log(models.Model):
+    ACTION_CHOICES = [
+        ('CREATE', 'Create'),
+        ('UPDATE', 'Update'),
+        ('DELETE', 'Delete'),
+        ('LOGIN', 'Login'),
+        ('LOGOUT', 'Logout'),
+        ('OTHER', 'Other'),
+    ]
+
+    user = models.ForeignKey(Account, on_delete=models.CASCADE, related_name='logs')
+    action = models.CharField(max_length=10, choices=ACTION_CHOICES)
+    model_name = models.CharField(max_length=50)  # The model that was affected
+    object_id = models.CharField(max_length=50, null=True, blank=True)  # ID of the affected object
+    details = models.TextField(null=True, blank=True)  # Additional details
+    ip_address = models.GenericIPAddressField(null=True, blank=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-timestamp']
+        verbose_name = 'Activity Log'
+        verbose_name_plural = 'Activity Logs'
+
+    def __str__(self):
+        return f"{self.user} - {self.action} {self.model_name} at {self.timestamp}"

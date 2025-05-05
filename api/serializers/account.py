@@ -26,4 +26,5 @@ class UpdatePasswordSerializer(serializers.Serializer):
 class AccountSerializer(serializers.ModelSerializer):
     class Meta:
         model = Account
-        fields = ['id', 'username', 'email', 'role', 'employee_number', 'mobile_number', 'created_at', 'updated_at']
+        fields = ['id', 'username', 'email', 'role', 'employee_number', 'mobile_number', 
+                 'profile_image', 'first_name', 'last_name', 'created_at', 'updated_at']

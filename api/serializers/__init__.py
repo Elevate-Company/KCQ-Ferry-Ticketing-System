@@ -3,3 +3,4 @@ from .ferry_boat import FerryBoatSerializer
 from .ticket import TicketSerializer
 from .account import UpdatePasswordSerializer, AccountSerializer
 from .passenger import PassengerSerializer
+from .log import LogSerializer
