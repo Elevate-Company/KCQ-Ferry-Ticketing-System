@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from drf_spectacular.utils import extend_schema
 from django.core.exceptions import ValidationError as DjangoValidationError
 from rest_framework.exceptions import ValidationError
+from rest_framework.decorators import action
 
 from api.models import Ticket, Trip, Passenger, Log
 from api.serializers import TicketSerializer
@@ -14,6 +15,62 @@ class TicketViewSet(viewsets.ModelViewSet):
     serializer_class = TicketSerializer
     permission_classes = [IsAuthenticated]
     lookup_field = 'ticket_number'
+    
+    # Add a new action for validating tickets when scanned
+    @action(detail=False, methods=['post'], url_path='validate-scan')
+    def validate_scan(self, request):
+        ticket_number = request.data.get('ticket_number')
+        
+        if not ticket_number:
+            return Response(
+                {'error': 'Ticket number is required'}, 
+                status=status.HTTP_400_BAD_REQUEST
+            )
+            
+        try:
+            # Find the ticket
+            ticket = Ticket.objects.get(ticket_number=ticket_number)
+            passenger = ticket.passenger
+            
+            # Check if the ticket has already been used (passenger already boarded)
+            if passenger.boarding_status == 'BOARDED':
+                return Response({
+                    'valid': False,
+                    'message': 'Ticket has already been used',
+                    'ticket': self.get_serializer(ticket).data
+                }, status=status.HTTP_200_OK)
+                
+            # Update passenger boarding status to BOARDED
+            passenger.boarding_status = 'BOARDED'
+            passenger.save()
+            
+            # Log the boarding action
+            Log.objects.create(
+                user=request.user,
+                action='BOARD',
+                model_name='Ticket',
+                object_id=str(ticket.id),
+                details=f"Passenger {passenger.name} boarded with ticket {ticket_number}",
+                ip_address=self.get_client_ip(request)
+            )
+            
+            # Return ticket details
+            return Response({
+                'valid': True,
+                'message': 'Ticket validated successfully',
+                'ticket': self.get_serializer(ticket).data
+            }, status=status.HTTP_200_OK)
+            
+        except Ticket.DoesNotExist:
+            return Response({
+                'valid': False,
+                'message': 'Invalid ticket number',
+            }, status=status.HTTP_404_NOT_FOUND)
+        except Exception as e:
+            return Response({
+                'valid': False,
+                'message': f'Error validating ticket: {str(e)}',
+            }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
     def create(self, request, *args, **kwargs):
         try:
