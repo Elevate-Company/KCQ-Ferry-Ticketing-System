@@ -35,11 +35,9 @@ class Trip(models.Model):
 
 class Passenger(models.Model):
     BOARDING_STATUS_CHOICES = [
-        ('NOT_CHECKED_IN', 'Not Checked-in'),
-        ('CHECKED_IN', 'Checked-in'),
+        ('NOT_BOARDED', 'Not Boarded'),
         ('BOARDED', 'Boarded'),
-        ('MISSED', 'Missed'),
-        ('OFFBOARDED', 'Offboarded'),
+        ('CANCELLED', 'Cancelled'),
     ]
 
     name = models.CharField(max_length=100)
@@ -48,11 +46,10 @@ class Passenger(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     total_bookings = models.PositiveIntegerField(default=0)
     updated_at = models.DateTimeField(auto_now=True)
-    is_delete = models.BooleanField(default=False)
     boarding_status = models.CharField(
         max_length=15,  # Length of the longest choice key
         choices=BOARDING_STATUS_CHOICES,
-        default='NOT_CHECKED_IN'
+        default='NOT_BOARDED'
     )
 
     def __str__(self):
@@ -88,6 +85,7 @@ class Ticket(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     created_by = models.ForeignKey(Account, on_delete=models.CASCADE)
     baggage_ticket = models.BooleanField(default=False)
+    is_delete = models.BooleanField(default=False)
     # Commenting out QR code field for now
     # qr_code = models.ImageField(upload_to='tickets/qr_codes/', blank=True, null=True)
 

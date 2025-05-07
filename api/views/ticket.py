@@ -39,6 +39,14 @@ class TicketViewSet(viewsets.ModelViewSet):
                     'message': 'Ticket has already been used',
                     'ticket': self.get_serializer(ticket).data
                 }, status=status.HTTP_200_OK)
+            
+            # Check if the ticket is cancelled
+            if passenger.boarding_status == 'CANCELLED':
+                return Response({
+                    'valid': False,
+                    'message': 'Ticket has been cancelled',
+                    'ticket': self.get_serializer(ticket).data
+                }, status=status.HTTP_200_OK)
                 
             # Update passenger boarding status to BOARDED
             passenger.boarding_status = 'BOARDED'

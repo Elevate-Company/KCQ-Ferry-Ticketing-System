@@ -7,7 +7,7 @@ from .trip import TripSerializer
 class TicketPassengerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Passenger
-        fields = ['id', 'name', 'email', 'phone', 'total_bookings', 'boarding_status', 'created_at', 'updated_at', 'is_delete']
+        fields = ['id', 'name', 'email', 'phone', 'total_bookings', 'boarding_status', 'created_at', 'updated_at']
 
 class TicketSerializer(serializers.ModelSerializer):
     trip = TripSerializer(read_only=True)
