@@ -16,6 +16,34 @@ class TicketViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
     lookup_field = 'ticket_number'
     
+    # Add a new action to get tickets by passenger ID
+    @action(detail=False, methods=['get'], url_path='by-passenger/(?P<passenger_id>[^/.]+)')
+    def by_passenger(self, request, passenger_id=None):
+        """
+        Get all tickets associated with a specific passenger
+        """
+        try:
+            # Verify the passenger exists
+            try:
+                passenger = Passenger.objects.get(id=passenger_id)
+            except Passenger.DoesNotExist:
+                return Response(
+                    {'error': f'Passenger with id {passenger_id} does not exist'}, 
+                    status=status.HTTP_404_NOT_FOUND
+                )
+                
+            # Get all tickets for this passenger
+            tickets = Ticket.objects.filter(passenger=passenger)
+            serializer = self.get_serializer(tickets, many=True)
+            
+            return Response(serializer.data, status=status.HTTP_200_OK)
+            
+        except Exception as e:
+            return Response(
+                {'error': f'An error occurred retrieving tickets: {str(e)}'}, 
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+    
     # Add a new action for validating tickets when scanned
     @action(detail=False, methods=['post'], url_path='validate-scan')
     def validate_scan(self, request):
