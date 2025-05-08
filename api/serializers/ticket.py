@@ -7,7 +7,7 @@ from .trip import TripSerializer
 class TicketPassengerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Passenger
-        fields = ['id', 'name', 'email', 'phone', 'total_bookings', 'boarding_status', 'created_at', 'updated_at']
+        fields = ['id', 'name', 'email', 'phone', 'total_bookings', 'created_at', 'updated_at']
 
 class TicketSerializer(serializers.ModelSerializer):
     trip = TripSerializer(read_only=True)
@@ -20,7 +20,8 @@ class TicketSerializer(serializers.ModelSerializer):
         model = Ticket
         fields = ['id', 'trip', 'trip_id', 'passenger', 'passenger_id', 'ticket_number', 'seat_number', 
                  'age_group', 'price', 'discount', 'baggage_ticket', 'payment_method',
-                 'payment_reference', 'cash_amount', 'created_by', 'issue_date', 'created_at', 'updated_at']
+                 'payment_reference', 'cash_amount', 'created_by', 'issue_date', 
+                 'boarding_status', 'created_at', 'updated_at']
         read_only_fields = ['id', 'created_by', 'issue_date', 'created_at', 'updated_at']
 
     def validate(self, data):

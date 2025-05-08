@@ -58,10 +58,9 @@ class TicketViewSet(viewsets.ModelViewSet):
         try:
             # Find the ticket
             ticket = Ticket.objects.get(ticket_number=ticket_number)
-            passenger = ticket.passenger
             
             # Check if the ticket has already been used (passenger already boarded)
-            if passenger.boarding_status == 'BOARDED':
+            if ticket.boarding_status == 'BOARDED':
                 return Response({
                     'valid': False,
                     'message': 'Ticket has already been used',
@@ -69,16 +68,16 @@ class TicketViewSet(viewsets.ModelViewSet):
                 }, status=status.HTTP_200_OK)
             
             # Check if the ticket is cancelled
-            if passenger.boarding_status == 'CANCELLED':
+            if ticket.boarding_status == 'CANCELLED':
                 return Response({
                     'valid': False,
                     'message': 'Ticket has been cancelled',
                     'ticket': self.get_serializer(ticket).data
                 }, status=status.HTTP_200_OK)
                 
-            # Update passenger boarding status to BOARDED
-            passenger.boarding_status = 'BOARDED'
-            passenger.save()
+            # Update ticket boarding status to BOARDED
+            ticket.boarding_status = 'BOARDED'
+            ticket.save()
             
             # Log the boarding action
             Log.objects.create(
@@ -86,7 +85,7 @@ class TicketViewSet(viewsets.ModelViewSet):
                 action='BOARD',
                 model_name='Ticket',
                 object_id=str(ticket.id),
-                details=f"Passenger {passenger.name} boarded with ticket {ticket_number}",
+                details=f"Passenger {ticket.passenger.name} boarded with ticket {ticket_number}",
                 ip_address=self.get_client_ip(request)
             )
             

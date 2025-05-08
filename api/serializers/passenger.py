@@ -4,4 +4,4 @@ from api.models import Passenger
 class PassengerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Passenger
-        fields = ['id', 'name', 'email', 'phone', 'total_bookings', 'boarding_status', 'created_at', 'updated_at']
+        fields = ['id', 'name', 'email', 'phone', 'total_bookings', 'created_at', 'updated_at']

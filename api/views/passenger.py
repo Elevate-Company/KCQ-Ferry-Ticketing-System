@@ -66,25 +66,7 @@ class PassengerViewSet(viewsets.ModelViewSet):
             ip = request.META.get('REMOTE_ADDR')
         return ip
     
-    # This action will allow updating the boarding status of a passenger
-    @action(detail=True, methods=['patch'], url_path='update-boarding-status')
-    def update_boarding_status(self, request, pk=None):
-        passenger = self.get_object()
-        boarding_status = request.data.get('boarding_status')
-        
-        if boarding_status not in dict(Passenger.BOARDING_STATUS_CHOICES):
-            return Response({"detail": "Invalid boarding status."}, status=status.HTTP_400_BAD_REQUEST)
-        
-        # Don't allow changing from BOARDED to NOT_BOARDED
-        if passenger.boarding_status == 'BOARDED' and boarding_status == 'NOT_BOARDED':
-            return Response({"detail": "Cannot change from BOARDED to NOT_BOARDED."}, status=status.HTTP_400_BAD_REQUEST)
-            
-        passenger.boarding_status = boarding_status
-        passenger.save()
-
-        return Response({"detail": "Boarding status updated successfully."}, status=status.HTTP_200_OK)
-        
-    # This action will allow updating the boarding status of a specific ticket
+    # Update boarding status for a specific ticket
     @action(detail=True, methods=['patch'], url_path='update-ticket-boarding-status')
     def update_ticket_boarding_status(self, request, pk=None):
         passenger = self.get_object()
@@ -94,7 +76,7 @@ class PassengerViewSet(viewsets.ModelViewSet):
         if not ticket_number:
             return Response({"detail": "Ticket number is required."}, status=status.HTTP_400_BAD_REQUEST)
             
-        if boarding_status not in dict(Passenger.BOARDING_STATUS_CHOICES):
+        if boarding_status not in dict(Ticket.BOARDING_STATUS_CHOICES):
             return Response({"detail": "Invalid boarding status."}, status=status.HTTP_400_BAD_REQUEST)
         
         try:
@@ -103,12 +85,12 @@ class PassengerViewSet(viewsets.ModelViewSet):
             
             # Check rules for status updates
             # Only allow changing from NOT_BOARDED to CANCELLED, or NOT_BOARDED to BOARDED
-            if passenger.boarding_status == 'BOARDED' and boarding_status != 'BOARDED':
+            if ticket.boarding_status == 'BOARDED' and boarding_status != 'BOARDED':
                 return Response({"detail": "Cannot change status once BOARDED."}, status=status.HTTP_400_BAD_REQUEST)
             
-            # Update the passenger's boarding status and save
-            passenger.boarding_status = boarding_status
-            passenger.save()
+            # Update the ticket's boarding status and save
+            ticket.boarding_status = boarding_status
+            ticket.save()
             
             return Response({"detail": "Boarding status updated successfully for ticket."}, status=status.HTTP_200_OK)
         except Ticket.DoesNotExist:

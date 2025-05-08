@@ -34,23 +34,12 @@ class Trip(models.Model):
         return f"{self.origin} to {self.destination} ({self.departure_time} - {self.arrival_time})"
 
 class Passenger(models.Model):
-    BOARDING_STATUS_CHOICES = [
-        ('NOT_BOARDED', 'Not Boarded'),
-        ('BOARDED', 'Boarded'),
-        ('CANCELLED', 'Cancelled'),
-    ]
-
     name = models.CharField(max_length=100)
     email = models.CharField(max_length=255, null=True, blank=True)
     phone = models.CharField(max_length=100, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     total_bookings = models.PositiveIntegerField(default=0)
     updated_at = models.DateTimeField(auto_now=True)
-    boarding_status = models.CharField(
-        max_length=15,  # Length of the longest choice key
-        choices=BOARDING_STATUS_CHOICES,
-        default='NOT_BOARDED'
-    )
 
     def __str__(self):
         return self.name
@@ -70,6 +59,12 @@ class Ticket(models.Model):
         ('MAYA', 'Maya'),
     ]
 
+    BOARDING_STATUS_CHOICES = [
+        ('NOT_BOARDED', 'Not Boarded'),
+        ('BOARDED', 'Boarded'),
+        ('CANCELLED', 'Cancelled'),
+    ]
+
     trip = models.ForeignKey(Trip, on_delete=models.CASCADE)
     passenger = models.ForeignKey(Passenger, on_delete=models.CASCADE)
     ticket_number = models.CharField(max_length=50, unique=True)
@@ -86,6 +81,11 @@ class Ticket(models.Model):
     created_by = models.ForeignKey(Account, on_delete=models.CASCADE)
     baggage_ticket = models.BooleanField(default=False)
     is_delete = models.BooleanField(default=False)
+    boarding_status = models.CharField(
+        max_length=15,
+        choices=BOARDING_STATUS_CHOICES,
+        default='NOT_BOARDED'
+    )
     # Commenting out QR code field for now
     # qr_code = models.ImageField(upload_to='tickets/qr_codes/', blank=True, null=True)
 
