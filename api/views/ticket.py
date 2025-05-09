@@ -44,6 +44,34 @@ class TicketViewSet(viewsets.ModelViewSet):
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
     
+    # Add a new action to get tickets by trip ID
+    @action(detail=False, methods=['get'], url_path='by-trip/(?P<trip_id>[^/.]+)')
+    def by_trip(self, request, trip_id=None):
+        """
+        Get all tickets associated with a specific trip
+        """
+        try:
+            # Verify the trip exists
+            try:
+                trip = Trip.objects.get(id=trip_id)
+            except Trip.DoesNotExist:
+                return Response(
+                    {'error': f'Trip with id {trip_id} does not exist'}, 
+                    status=status.HTTP_404_NOT_FOUND
+                )
+                
+            # Get all tickets for this trip
+            tickets = Ticket.objects.filter(trip=trip)
+            serializer = self.get_serializer(tickets, many=True)
+            
+            return Response(serializer.data, status=status.HTTP_200_OK)
+            
+        except Exception as e:
+            return Response(
+                {'error': f'An error occurred retrieving tickets: {str(e)}'}, 
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+    
     # Add a new action for validating tickets when scanned
     @action(detail=False, methods=['post'], url_path='validate-scan')
     def validate_scan(self, request):
