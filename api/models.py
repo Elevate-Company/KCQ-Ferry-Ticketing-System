@@ -44,6 +44,33 @@ class Passenger(models.Model):
     def __str__(self):
         return self.name
 
+class Baggage(models.Model):
+    weight = models.DecimalField(max_digits=5, decimal_places=2, default=0.00)
+    free_weight_limit = models.DecimalField(max_digits=5, decimal_places=2, default=7.00)
+    excess_weight = models.DecimalField(max_digits=5, decimal_places=2, default=0.00)
+    excess_fee_per_kg = models.DecimalField(max_digits=10, decimal_places=2, default=50.00)
+    total_fee = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def save(self, *args, **kwargs):
+        # Calculate excess weight if any
+        # Convert all values to Decimal to avoid type issues
+        weight = Decimal(str(self.weight))
+        free_limit = Decimal(str(self.free_weight_limit))
+        fee_per_kg = Decimal(str(self.excess_fee_per_kg))
+        
+        if weight > free_limit:
+            self.excess_weight = weight - free_limit
+            self.total_fee = self.excess_weight * fee_per_kg
+        else:
+            self.excess_weight = Decimal('0.00')
+            self.total_fee = Decimal('0.00')
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return f"Baggage: {self.weight}kg (Excess: {self.excess_weight}kg, Fee: PHP{self.total_fee})"
+
 class Ticket(models.Model):
     AGE_GROUP_CHOICES = [
         ('adult', 'Adult'),
@@ -80,6 +107,7 @@ class Ticket(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     created_by = models.ForeignKey(Account, on_delete=models.CASCADE)
     baggage_ticket = models.BooleanField(default=False)
+    baggage = models.OneToOneField(Baggage, on_delete=models.SET_NULL, null=True, blank=True)
     is_delete = models.BooleanField(default=False)
     boarding_status = models.CharField(
         max_length=15,

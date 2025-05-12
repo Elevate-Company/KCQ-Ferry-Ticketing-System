@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import FerryBoat, Trip, Passenger, Ticket, Log
+from .models import FerryBoat, Trip, Passenger, Ticket, Log, Baggage
 from django.utils.html import format_html
 from django.contrib import messages
 
@@ -76,17 +76,31 @@ class PassengerAdmin(admin.ModelAdmin):
             ip = request.META.get('REMOTE_ADDR')
         return ip
 
+# Register Baggage model
+@admin.register(Baggage)
+class BaggageAdmin(admin.ModelAdmin):
+    list_display = ('id', 'weight', 'free_weight_limit', 'excess_weight', 'excess_fee_per_kg', 'total_fee', 'created_at')
+    list_filter = ('created_at',)
+    search_fields = ('id',)
+    readonly_fields = ('excess_weight', 'total_fee')
+
 # Register Ticket model
 @admin.register(Ticket)
 class TicketAdmin(admin.ModelAdmin):
     list_display = (
         'ticket_number', 'passenger', 'trip', 'seat_number', 'age_group', 
-        'price', 'issue_date', 'created_by', 'baggage_ticket'
+        'price', 'issue_date', 'created_by', 'baggage_ticket', 'get_baggage_info'
         # Removing qr_code_image from display
     )
     search_fields = ('ticket_number', 'passenger__name', 'trip__origin', 'trip__destination')
-    list_filter = ('age_group', 'issue_date', 'created_at', 'trip')
+    list_filter = ('age_group', 'issue_date', 'created_at', 'trip', 'baggage_ticket')
     readonly_fields = ['discount']  # Removed qr_code_image from readonly_fields
+    
+    def get_baggage_info(self, obj):
+        if obj.baggage:
+            return f"{obj.baggage.weight}kg (Fee: PHP{obj.baggage.total_fee})"
+        return "-"
+    get_baggage_info.short_description = 'Baggage Info'
     
     # Commenting out QR code image method
     # def qr_code_image(self, obj): 
